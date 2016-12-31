@@ -2,28 +2,62 @@
 #include "PayOff.h"
 #include <minmax.h>
 
-PayOff::PayOff(double strike_, OptionType optionType_)
-	: Strike(strike_), Type(optionType_)
+
+// Call
+PayOffCall::PayOffCall(double strike)
+	: Strike(strike)
 {}
 
 
-double PayOff::operator()(double spot) const
+double PayOffCall::operator()(double spot) const
 {
-	switch (Type)
-	{
-	case call:
-		return max(spot - Strike, 0.0);
+	return max(spot - Strike, 0.0);
+}
 
-	case put:
-		return max(Strike - spot, 0.0);
 
-	case digitalCall:
-		return spot > Strike ? 1.0 : 0.0;
+// Put
+PayOffPut::PayOffPut(double strike)
+	: Strike(strike)
+{}
 
-	case digitalPut:
-		return Strike > spot ? 1.0 : 0.0;
 
-	default:
-		throw("Unknown option type found");
-	}
+double PayOffPut::operator()(double spot) const
+{
+	return max(Strike - spot, 0.0);
+}
+
+
+// Digital Call
+PayOffDigitalCall::PayOffDigitalCall(double strike)
+	: Strike(strike)
+{}
+
+
+double PayOffDigitalCall::operator()(double spot) const
+{
+	return spot > Strike ? 1.0 : 0.0;
+}
+
+
+// Digital Put
+PayOffDigitalPut::PayOffDigitalPut(double strike)
+	: Strike(strike)
+{}
+
+
+double PayOffDigitalPut::operator()(double spot) const
+{
+	return Strike > spot ? 1.0 : 0.0;
+}
+
+
+// Double Digital
+PayOffDoubleDigital::PayOffDoubleDigital(double lowerLevel, double upperLevel)
+	: LowerLevel(lowerLevel), UpperLevel(upperLevel)
+{}
+
+
+double PayOffDoubleDigital::operator()(double spot) const
+{
+	return LowerLevel < spot && spot < UpperLevel ? 1.0 : 0.0;
 }
