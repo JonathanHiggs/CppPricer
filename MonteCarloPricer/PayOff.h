@@ -2,7 +2,9 @@
 
 enum OptionType {
 	call,
-	put
+	put,
+	digitalCall,
+	digitalPut
 };
 
 class PayOff
