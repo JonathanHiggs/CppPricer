@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Random.h"
 #include "PayOff.h"
+#include "Option.h"
 #include <cmath>
 
 #if !defined(_MSC_VER)
@@ -9,18 +10,17 @@ using namespace std;
 
 
 double SimpleMonteCarlo(
-	const PayOff& payOff,
-	double expiry,
+	const VanillaOption& option,
 	double spot,
 	double vol,
 	double discountRate,
 	unsigned long numberOfPaths)
 {
-	double variance = vol * vol * expiry;
+	double variance = vol * vol * option.GetExpiry();
 	double rootVariance = sqrt(variance);
 	double itoCorrection = -0.5 * variance;
 
-	double movedSpot = spot * exp(discountRate * expiry * itoCorrection);
+	double movedSpot = spot * exp(discountRate * option.GetExpiry() * itoCorrection);
 	double thisSpot, thisGaussian, thisPayOff;
 	double runningSum = 0.0;
 
@@ -28,11 +28,11 @@ double SimpleMonteCarlo(
 	{
 		thisGaussian = getOneGaussianByBoxMiller();
 		thisSpot = movedSpot * exp(rootVariance * thisGaussian);
-		thisPayOff = payOff(thisSpot);
+		thisPayOff = option.OptionPayOff(thisSpot);
 		runningSum += thisPayOff;
 	}
 
 	double mean = runningSum / numberOfPaths;
-	mean *= exp(-discountRate * expiry);
+	mean *= exp(-discountRate * option.GetExpiry());
 	return mean;
 }

@@ -145,6 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Option.h" />
     <ClInclude Include="PayOff.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="SimpleMonteCarlo.h" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MonteCarloPricer.cpp" />
+    <ClCompile Include="Option.cpp" />
     <ClCompile Include="PayOff.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="SimpleMonteCarlo.cpp" />

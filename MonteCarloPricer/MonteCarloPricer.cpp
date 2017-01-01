@@ -3,6 +3,8 @@
 
 #include "stdafx.h"
 #include "SimpleMonteCarlo.h"
+#include "Option.h"
+#include "PayOff.h"
 #include <iostream>
 #include <string>
 
@@ -14,21 +16,32 @@ int main()
 {
 	double expiry = 1;
 	double strike = 85;
-	PayOffCall call(strike);
-	PayOffPut put(strike);
-	PayOffDigitalCall digitalCall(strike);
-	PayOffDigitalPut digitalPut(strike);
-	PayOff* doubleDigital = new PayOffDoubleDigital(82.0, 85.0);
+
+	PayOffCall payOffCall(strike);
+	VanillaOption* callOption = new VanillaOption(payOffCall, expiry);
+
+	PayOffPut payOffPut(strike);
+	VanillaOption* putOption = new VanillaOption(payOffPut, expiry);
+
+	PayOffDigitalCall payOffDigitalCall(strike);
+	VanillaOption* digitalCallOption = new VanillaOption(payOffDigitalCall, expiry);
+	
+	PayOffDigitalPut payOffDigitalPut(strike);
+	VanillaOption* digitalPutOption = new VanillaOption(payOffDigitalPut, expiry);
+	
+	PayOffDoubleDigital payOffDoubleDigital(82.0, 86.0);
+	VanillaOption* doubleDigitalOption = new VanillaOption(payOffDoubleDigital, expiry);
+	
 	double spot = 80;
 	double vol = 0.05;
 	double discountRate = 0.05;
 	unsigned long numberOfPaths = 1000000;
 
-	double callPrice = SimpleMonteCarlo(call, expiry, spot, vol, discountRate, numberOfPaths);
-	double putPrice = SimpleMonteCarlo(put, expiry, spot, vol, discountRate, numberOfPaths);
-	double digitalCallPrice = SimpleMonteCarlo(digitalCall, expiry, spot, vol, discountRate, numberOfPaths);
-	double digitalPutPrice =  SimpleMonteCarlo(digitalPut, expiry, spot, vol, discountRate, numberOfPaths);
-	double doubleDigitalPrice = SimpleMonteCarlo(*doubleDigital, expiry, spot, vol, discountRate, numberOfPaths);
+	double callPrice = SimpleMonteCarlo(*callOption, spot, vol, discountRate, numberOfPaths);
+	double putPrice = SimpleMonteCarlo(*putOption, spot, vol, discountRate, numberOfPaths);
+	double digitalCallPrice = SimpleMonteCarlo(*digitalCallOption, spot, vol, discountRate, numberOfPaths);
+	double digitalPutPrice =  SimpleMonteCarlo(*digitalPutOption, spot, vol, discountRate, numberOfPaths);
+	double doubleDigitalPrice = SimpleMonteCarlo(*doubleDigitalOption,  spot, vol, discountRate, numberOfPaths);
 
 	cout << "The call price is:           " << callPrice << endl;
 	cout << "The put price is:            " << putPrice << endl;

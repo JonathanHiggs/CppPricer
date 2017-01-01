@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="PayOff">
+      <UniqueIdentifier>{5e2eebc2-c7bc-49ef-ad08-2da6aa425ef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Instrument">
+      <UniqueIdentifier>{3b7d368d-847d-4ddd-b781-7060e88cf6f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -27,11 +33,14 @@
     <ClInclude Include="Random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PayOff.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SimpleMonteCarlo.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOff.h">
+      <Filter>PayOff</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.h">
+      <Filter>Instrument</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -44,11 +53,14 @@
     <ClCompile Include="Random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PayOff.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SimpleMonteCarlo.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PayOff.cpp">
+      <Filter>PayOff</Filter>
+    </ClCompile>
+    <ClCompile Include="Option.cpp">
+      <Filter>Instrument</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,11 +1,10 @@
 #pragma once
 
-#include "PayOff.h"
+#include "Option.h"
 
 
 double SimpleMonteCarlo(
-	const PayOff& payOff,
-	double expiry,
+	const VanillaOption& option,
 	double spot,
 	double vol,
 	double discountRate,
