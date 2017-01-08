@@ -22,6 +22,9 @@
     <Filter Include="Parameters">
       <UniqueIdentifier>{f3f0ea63-64b1-4dde-b37a-4bec8b8f9017}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Statistics">
+      <UniqueIdentifier>{cfaaddcd-a1e6-47e1-b1ac-d1ca3e96926c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -49,7 +52,10 @@
       <Filter>Parameters</Filter>
     </ClInclude>
     <ClInclude Include="Statistics.h">
-      <Filter>Header Files</Filter>
+      <Filter>Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvergenceTable.h">
+      <Filter>Statistics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +81,9 @@
       <Filter>Parameters</Filter>
     </ClCompile>
     <ClCompile Include="Statistics.cpp">
+      <Filter>Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvergenceTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

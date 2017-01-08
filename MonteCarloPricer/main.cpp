@@ -6,6 +6,7 @@
 #include "Option.h"
 #include "PayOff.h"
 #include "Statistics.h"
+#include "ConvergenceTable.h"
 #include <iostream>
 #include <string>
 #include <memory>
@@ -14,12 +15,29 @@
 using namespace std;
 
 
+ostream& display_result(ostream& os, ConvergenceTable& convergenceTable)
+{
+	vector<vector<double>> results = convergenceTable.GetResultsSoFar();
+	double price, paths;
+
+	for (auto i = 0; i < results.size(); i++)
+	{
+		price = results[i][0];
+		paths = results[i][1];
+
+		os << "Price after " << (int)paths << " paths  is " << price << endl;
+	}
+
+	return os;
+}
+
+
 int main()
 {
 	double expiry = 1;
 	double strike = 85;
 
-	StatisticsMean callOptionStats;
+	ConvergenceTable callOptionStats(unique_ptr<Statistics>(new StatisticsMean()));
 	VanillaOption callOption(new PayOffCall(strike), expiry);
 
 	StatisticsMean putOptionStats;
@@ -44,6 +62,9 @@ int main()
 	SimpleMonteCarlo(digitalCallOption, spot, vol, discountRate, numberOfPaths, digitalCallOptionStats);
 	SimpleMonteCarlo(digitalPutOption, spot, vol, discountRate, numberOfPaths, digitalPutOptionStats);
 	SimpleMonteCarlo(doubleDigitalOption,  spot, vol, discountRate, numberOfPaths, doubleDigitalOptionStats);
+
+	cout << "The call option:" << endl;
+	display_result(cout, callOptionStats) << endl << endl;
 
 	cout << "The call price is:           " << callOptionStats.GetResultsSoFar()[0][0] << endl;
 	cout << "The put price is:            " << putOptionStats.GetResultsSoFar()[0][0] << endl;

@@ -145,6 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConvergenceTable.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="Parameter.h" />
     <ClInclude Include="PayOff.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ConvergenceTable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Option.cpp" />
     <ClCompile Include="Parameter.cpp" />
