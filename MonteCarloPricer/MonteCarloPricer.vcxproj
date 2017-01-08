@@ -150,6 +150,7 @@
     <ClInclude Include="PayOff.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="SimpleMonteCarlo.h" />
+    <ClInclude Include="Statistics.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -160,6 +161,7 @@
     <ClCompile Include="PayOff.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="SimpleMonteCarlo.cpp" />
+    <ClCompile Include="Statistics.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
