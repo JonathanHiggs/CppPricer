@@ -10,6 +10,11 @@ ConvergenceTable::ConvergenceTable(Statistics& inner)
 {}
 
 
+ConvergenceTable::ConvergenceTable(Statistics* inner)
+	: inner(inner), stoppingPoint(2), pathsDone(0UL)
+{}
+
+
 ConvergenceTable::ConvergenceTable(unique_ptr<Statistics> inner)
 	: inner(move(inner)), stoppingPoint(2), pathsDone(0UL)
 {}

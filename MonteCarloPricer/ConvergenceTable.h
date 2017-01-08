@@ -10,6 +10,7 @@ class ConvergenceTable : public Statistics
 {
 public:
 	ConvergenceTable(Statistics& inner);
+	ConvergenceTable(Statistics* inner);
 	ConvergenceTable(std::unique_ptr<Statistics> inner);
 
 	virtual void DumpOneResult(double result);

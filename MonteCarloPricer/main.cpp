@@ -37,7 +37,7 @@ int main()
 	double expiry = 1;
 	double strike = 85;
 
-	ConvergenceTable callOptionStats(unique_ptr<Statistics>(new StatisticsMean()));
+	ConvergenceTable callOptionStats(new StatisticsMean());
 	VanillaOption callOption(new PayOffCall(strike), expiry);
 
 	StatisticsMean putOptionStats;
