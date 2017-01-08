@@ -21,7 +21,7 @@ int main()
 	double expiry = 1;
 	double strike = 85;
 
-	MeanGatherer callOptionStats;
+	ConvergenceTableGatherer callOptionStats(unique_ptr<StatisticsGatherer>(new MeanGatherer()));
 	VanillaOption callOption(new PayOffCall(strike), expiry);
 
 	MeanGatherer putOptionStats;
@@ -47,12 +47,13 @@ int main()
 	SimpleMonteCarlo(digitalPutOption, spot, vol, discountRate, numberOfPaths, digitalPutOptionStats);
 	SimpleMonteCarlo(doubleDigitalOption,  spot, vol, discountRate, numberOfPaths, doubleDigitalOptionStats);
 
-	cout << "The call option price is:    " << callOptionStats.GetResultsSoFar()[0] << endl;
-	cout << "The call price is:           " << callOptionStats.GetResultsSoFar()[0] << endl;
-	cout << "The put price is:            " << putOptionStats.GetResultsSoFar()[0] << endl;
-	cout << "The digital call price is:   " << digitalCallOptionStats.GetResultsSoFar()[0] << endl;
-	cout << "The digital put price is:    " << digitalPutOptionStats.GetResultsSoFar()[0] << endl;
-	cout << "The double digital price is: " << doubleDigitalOptionStats.GetResultsSoFar()[0] << endl;
+	cout << "The call option results:" << endl << callOptionStats.GetResultTable() << endl << endl;
+
+	cout << "The call price is:           " << callOptionStats.GetResultsSoFar() << endl;
+	cout << "The put price is:            " << putOptionStats.GetResultsSoFar() << endl;
+	cout << "The digital call price is:   " << digitalCallOptionStats.GetResultsSoFar() << endl;
+	cout << "The digital put price is:    " << digitalPutOptionStats.GetResultsSoFar() << endl;
+	cout << "The double digital price is: " << doubleDigitalOptionStats.GetResultsSoFar() << endl;
 
 	return 0;
 }

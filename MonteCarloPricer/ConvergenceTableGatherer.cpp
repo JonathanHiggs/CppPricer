@@ -1,18 +1,9 @@
 #include "stdafx.h"
 #include "ConvergenceTableGatherer.h"
+#include "NumberOfPathsResult.h"
 
 
 using namespace std;
-
-
-ConvergenceTableGatherer::ConvergenceTableGatherer(StatisticsGatherer& inner)
-	: inner(inner.clone()), stoppingPoint(2), pathsDone(0UL)
-{}
-
-
-ConvergenceTableGatherer::ConvergenceTableGatherer(StatisticsGatherer* inner)
-	: inner(inner), stoppingPoint(2), pathsDone(0UL)
-{}
 
 
 ConvergenceTableGatherer::ConvergenceTableGatherer(unique_ptr<StatisticsGatherer> inner)
@@ -28,27 +19,38 @@ void ConvergenceTableGatherer::DumpOneResult(double result)
 	if (pathsDone == stoppingPoint)
 	{
 		stoppingPoint *= 2;
-		vector<StatisticResult*> thisResult(inner->GetResultsSoFar());
-		resultsSoFar.push_back(thisResult);
+		ResultSet thisResult(inner->GetResultsSoFar());
+		thisResult.Append(shared_ptr<StatisticResult>(new NumberOfPathsResult(pathsDone)));
+		resultsSoFar.Append(thisResult);
 	}
 }
 
 
-vector<vector<StatisticResult*>> ConvergenceTableGatherer::GetResultsSoFar() const
+ResultSet ConvergenceTableGatherer::GetResultsSoFar() const
 {
-	vector<vector<StatisticResult*>> tmp(resultsSoFar);
+	return inner->GetResultsSoFar();
+}
 
-	if (pathsDone * 2 != stoppingPoint)
-	{
-		vector<StatisticResult*> thisResult(inner->GetResultsSoFar());
-		tmp.push_back(thisResult);
-	}
 
+ResultTable ConvergenceTableGatherer::GetResultTable() const
+{
+	ResultTable tmp(resultsSoFar);
+	ResultSet currentResults(inner->GetResultsSoFar());
+	currentResults.Append(shared_ptr<StatisticResult>(new NumberOfPathsResult(pathsDone)));
+	tmp.Append(currentResults);
 	return tmp;
 }
 
 
-unique_ptr<ConvergenceTableGatherer> ConvergenceTableGatherer::clone() const
+void ConvergenceTableGatherer::Reset()
 {
-	return unique_ptr<ConvergenceTableGatherer>(new ConvergenceTableGatherer(inner->clone()));
+	stoppingPoint = 2;
+	pathsDone = 0UL;
+	resultsSoFar = ResultTable();
+}
+
+
+unique_ptr<StatisticsGatherer> ConvergenceTableGatherer::clone() const
+{
+	return unique_ptr<StatisticsGatherer>(new ConvergenceTableGatherer(inner->clone()));
 }

@@ -1,24 +1,12 @@
 #include "stdafx.h"
 #include "MeanGatherer.h"
-
+#include "MeanResult.h"
+#include <memory>
 
 
 using namespace std;
 
 
-// ## Mean Result ##
-MeanResult::MeanResult(double mean)
-	: mean(mean)
-{}
-
-
-void MeanResult::Serialize(ostream& os) const
-{
-	os << mean;
-}
-
-
-// ## Mean Gatherer ##
 MeanGatherer::MeanGatherer()
 	: runningSum(0.0), pathsDone(0UL)
 {}
@@ -37,11 +25,13 @@ void MeanGatherer::DumpOneResult(double result)
 }
 
 
-vector<StatisticResult*> MeanGatherer::GetResultsSoFar() const
+ResultSet MeanGatherer::GetResultsSoFar() const
 {
-	vector<StatisticResult*> results(1);
+	ResultSet results;
 
-	results[0] = new MeanResult(runningSum / pathsDone);
+	shared_ptr<StatisticResult> result{new MeanResult(runningSum / pathsDone)};
+
+	results.Append(result);
 
 	return results;
 }

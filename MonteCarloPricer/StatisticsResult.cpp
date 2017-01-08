@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "StatisticsGatherer.h"
+#include "StatisticsResult.h"
 
 
 using namespace std;

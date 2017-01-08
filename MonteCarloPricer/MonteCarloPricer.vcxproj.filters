@@ -62,6 +62,18 @@
     <ClInclude Include="ResultSet.h">
       <Filter>Source Files\Statistics</Filter>
     </ClInclude>
+    <ClInclude Include="StatisticsResult.h">
+      <Filter>Source Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="MeanResult.h">
+      <Filter>Source Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultTable.h">
+      <Filter>Source Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberOfPathsResult.h">
+      <Filter>Source Files\Statistics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -91,10 +103,19 @@
     <ClCompile Include="MeanGatherer.cpp">
       <Filter>Source Files\Statistics</Filter>
     </ClCompile>
-    <ClCompile Include="StatisticsGatherer.cpp">
+    <ClCompile Include="ResultSet.cpp">
       <Filter>Source Files\Statistics</Filter>
     </ClCompile>
-    <ClCompile Include="ResultSet.cpp">
+    <ClCompile Include="StatisticsResult.cpp">
+      <Filter>Source Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="MeanResult.cpp">
+      <Filter>Source Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultTable.cpp">
+      <Filter>Source Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberOfPathsResult.cpp">
       <Filter>Source Files\Statistics</Filter>
     </ClCompile>
   </ItemGroup>
