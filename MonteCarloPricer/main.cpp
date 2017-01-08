@@ -17,20 +17,15 @@ int main()
 	double expiry = 1;
 	double strike = 85;
 
-	PayOffCall payOffCall(strike);
-	VanillaOption* callOption = new VanillaOption(payOffCall, expiry);
+	VanillaOption* callOption = new VanillaOption(new PayOffCall(strike), expiry);
 
-	PayOffPut payOffPut(strike);
-	VanillaOption* putOption = new VanillaOption(payOffPut, expiry);
+	VanillaOption* putOption = new VanillaOption(new PayOffPut(strike), expiry);
 
-	PayOffDigitalCall payOffDigitalCall(strike);
-	VanillaOption* digitalCallOption = new VanillaOption(payOffDigitalCall, expiry);
+	VanillaOption* digitalCallOption = new VanillaOption(new PayOffDigitalCall(strike), expiry);
 	
-	PayOffDigitalPut payOffDigitalPut(strike);
-	VanillaOption* digitalPutOption = new VanillaOption(payOffDigitalPut, expiry);
+	VanillaOption* digitalPutOption = new VanillaOption(new PayOffDigitalPut(strike), expiry);
 	
-	PayOffDoubleDigital payOffDoubleDigital(82.0, 86.0);
-	VanillaOption* doubleDigitalOption = new VanillaOption(payOffDoubleDigital, expiry);
+	VanillaOption* doubleDigitalOption = new VanillaOption(new PayOffDoubleDigital(82.0, 85.0), expiry);
 	
 	double spot = 80;
 	ParameterConstant vol(0.05);

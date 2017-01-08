@@ -1,17 +1,18 @@
 #pragma once
 
 
-#include "PayOffBridge.h"
+#include "PayOff.h"
+#include <memory>
 
 
 class VanillaOption
 {
 public:
-	VanillaOption(const PayOffBridge& payOff, double expiry);
+	VanillaOption(PayOff* payOff, double expiry);
 	double GetExpiry() const;
 	double OptionPayOff(double spot) const;
 
 private:
-	PayOffBridge payOff;
+	std::unique_ptr<PayOff> payOff;
 	double expiry;
 };

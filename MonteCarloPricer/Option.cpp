@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Option.h"
-#include "PayOffBridge.h"
 
 
 #if !defined(_MSC_VER)
@@ -8,9 +7,11 @@ using namespace std;
 #endif
 
 
-VanillaOption::VanillaOption(const PayOffBridge& payOff, double expiry)
-	: payOff(payOff), expiry(expiry)
-{}
+VanillaOption::VanillaOption(PayOff* payOff, double expiry)
+	: expiry(expiry)
+{
+	this->payOff = std::unique_ptr<PayOff>(payOff);
+}
 
 
 double VanillaOption::GetExpiry() const
@@ -21,5 +22,5 @@ double VanillaOption::GetExpiry() const
 
 double VanillaOption::OptionPayOff(double spot) const
 {
-	return payOff(spot);
+	return (*payOff)(spot);
 }

@@ -45,9 +45,6 @@
     <ClInclude Include="Option.h">
       <Filter>Instrument</Filter>
     </ClInclude>
-    <ClInclude Include="PayOffBridge.h">
-      <Filter>PayOff</Filter>
-    </ClInclude>
     <ClInclude Include="Parameter.h">
       <Filter>Parameters</Filter>
     </ClInclude>
@@ -67,9 +64,6 @@
     </ClCompile>
     <ClCompile Include="Option.cpp">
       <Filter>Instrument</Filter>
-    </ClCompile>
-    <ClCompile Include="PayOffBridge.cpp">
-      <Filter>PayOff</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
