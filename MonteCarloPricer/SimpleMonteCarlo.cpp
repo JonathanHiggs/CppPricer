@@ -2,6 +2,7 @@
 #include "Random.h"
 #include "PayOff.h"
 #include "Option.h"
+#include "Parameter.h"
 #include <cmath>
 
 #if !defined(_MSC_VER)
@@ -12,15 +13,16 @@ using namespace std;
 double SimpleMonteCarlo(
 	const VanillaOption& option,
 	double spot,
-	double vol,
-	double discountRate,
+	const Parameter& vol,
+	const Parameter& discountRate,
 	unsigned long numberOfPaths)
 {
-	double variance = vol * vol * option.GetExpiry();
+	double expiry = option.GetExpiry();
+	double variance = vol.IntegralSquare(0, expiry);
 	double rootVariance = sqrt(variance);
 	double itoCorrection = -0.5 * variance;
 
-	double movedSpot = spot * exp(discountRate * option.GetExpiry() * itoCorrection);
+	double movedSpot = spot * exp(discountRate.Integral(0, expiry) + itoCorrection);
 	double thisSpot, thisGaussian, thisPayOff;
 	double runningSum = 0.0;
 
@@ -33,6 +35,6 @@ double SimpleMonteCarlo(
 	}
 
 	double mean = runningSum / numberOfPaths;
-	mean *= exp(-discountRate * option.GetExpiry());
+	mean *= exp(-discountRate.Integral(0, expiry));
 	return mean;
 }

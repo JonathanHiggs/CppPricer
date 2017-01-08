@@ -1,13 +1,14 @@
 #include "stdafx.h"
 #include "Option.h"
-#include "PayOff.h"
+#include "PayOffBridge.h"
+
 
 #if !defined(_MSC_VER)
 using namespace std;
 #endif
 
 
-VanillaOption::VanillaOption(PayOff& payOff, double expiry)
+VanillaOption::VanillaOption(const PayOffBridge& payOff, double expiry)
 	: payOff(payOff), expiry(expiry)
 {}
 

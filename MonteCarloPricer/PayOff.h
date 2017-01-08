@@ -7,6 +7,8 @@ public:
 	PayOff() {};
 	virtual double operator()(double spot) const = 0;
 	virtual ~PayOff() {};
+
+	virtual PayOff* clone() const = 0;
 };
 
 
@@ -17,8 +19,10 @@ public:
 	virtual double operator() (double spot) const;
 	virtual ~PayOffCall() {};
 
+	virtual PayOffCall* clone() const;
+
 private:
-	double Strike;
+	double strike;
 };
 
 
@@ -28,6 +32,8 @@ public:
 	PayOffPut(double strike);
 	virtual double operator() (double spot) const;
 	virtual ~PayOffPut() {};
+
+	virtual PayOffPut* clone() const;
 
 private:
 	double Strike;
@@ -41,6 +47,8 @@ public:
 	virtual double operator() (double spot) const;
 	virtual ~PayOffDigitalCall() {};
 
+	virtual PayOffDigitalCall* clone() const;
+
 private:
 	double Strike;
 };
@@ -53,6 +61,8 @@ public:
 	virtual double operator() (double spot) const;
 	virtual ~PayOffDigitalPut() {};
 
+	virtual PayOffDigitalPut* clone() const;
+
 private:
 	double Strike;
 };
@@ -64,6 +74,8 @@ public:
 	PayOffDoubleDigital(double lowerLevel, double upperLevel);
 	virtual double operator() (double spot) const;
 	virtual ~PayOffDoubleDigital() {};
+
+	virtual PayOffDoubleDigital* clone() const;
 
 private:
 	double LowerLevel;

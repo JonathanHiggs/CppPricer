@@ -5,13 +5,19 @@
 
 // Call
 PayOffCall::PayOffCall(double strike)
-	: Strike(strike)
+	: strike(strike)
 {}
 
 
 double PayOffCall::operator()(double spot) const
 {
-	return max(spot - Strike, 0.0);
+	return max(spot - strike, 0.0);
+}
+
+
+PayOffCall* PayOffCall::clone() const
+{
+	return new PayOffCall(strike);
 }
 
 
@@ -27,6 +33,12 @@ double PayOffPut::operator()(double spot) const
 }
 
 
+PayOffPut* PayOffPut::clone() const
+{
+	return new PayOffPut(Strike);
+}
+
+
 // Digital Call
 PayOffDigitalCall::PayOffDigitalCall(double strike)
 	: Strike(strike)
@@ -36,6 +48,12 @@ PayOffDigitalCall::PayOffDigitalCall(double strike)
 double PayOffDigitalCall::operator()(double spot) const
 {
 	return spot > Strike ? 1.0 : 0.0;
+}
+
+
+PayOffDigitalCall* PayOffDigitalCall::clone() const
+{
+	return new PayOffDigitalCall(Strike);
 }
 
 
@@ -51,6 +69,12 @@ double PayOffDigitalPut::operator()(double spot) const
 }
 
 
+PayOffDigitalPut* PayOffDigitalPut::clone() const
+{
+	return new PayOffDigitalPut(Strike);
+}
+
+
 // Double Digital
 PayOffDoubleDigital::PayOffDoubleDigital(double lowerLevel, double upperLevel)
 	: LowerLevel(lowerLevel), UpperLevel(upperLevel)
@@ -60,4 +84,10 @@ PayOffDoubleDigital::PayOffDoubleDigital(double lowerLevel, double upperLevel)
 double PayOffDoubleDigital::operator()(double spot) const
 {
 	return LowerLevel < spot && spot < UpperLevel ? 1.0 : 0.0;
+}
+
+
+PayOffDoubleDigital* PayOffDoubleDigital::clone() const
+{
+	return new PayOffDoubleDigital(LowerLevel, UpperLevel);
 }

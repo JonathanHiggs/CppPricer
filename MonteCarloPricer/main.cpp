@@ -1,5 +1,5 @@
-// MonteCarloPricer.cpp : Defines the entry point for the console application.
-//
+// main.cpp : Defines the entry point for the console application.
+
 
 #include "stdafx.h"
 #include "SimpleMonteCarlo.h"
@@ -33,8 +33,8 @@ int main()
 	VanillaOption* doubleDigitalOption = new VanillaOption(payOffDoubleDigital, expiry);
 	
 	double spot = 80;
-	double vol = 0.05;
-	double discountRate = 0.05;
+	ParameterConstant vol(0.05);
+	ParameterConstant discountRate(0.05);
 	unsigned long numberOfPaths = 1000000;
 
 	double callPrice = SimpleMonteCarlo(*callOption, spot, vol, discountRate, numberOfPaths);
