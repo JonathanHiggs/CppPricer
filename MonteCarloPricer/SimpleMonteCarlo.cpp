@@ -3,7 +3,7 @@
 #include "PayOff.h"
 #include "Option.h"
 #include "Parameter.h"
-#include "Statistics.h"
+#include "StatisticsGatherer.h"
 #include <cmath>
 
 #if !defined(_MSC_VER)
@@ -17,7 +17,7 @@ void SimpleMonteCarlo(
 	const Parameter& vol,
 	const Parameter& discountRate,
 	unsigned long numberOfPaths,
-	Statistics& gatherer)
+	StatisticsGatherer& gatherer)
 {
 	double expiry = option.GetExpiry();
 	double variance = vol.IntegralSquare(0, expiry);

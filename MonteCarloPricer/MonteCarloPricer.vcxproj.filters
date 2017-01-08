@@ -5,86 +5,97 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="PayOff">
+    <Filter Include="Source Files\PayOff">
       <UniqueIdentifier>{5e2eebc2-c7bc-49ef-ad08-2da6aa425ef4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Instrument">
-      <UniqueIdentifier>{3b7d368d-847d-4ddd-b781-7060e88cf6f1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Parameters">
+    <Filter Include="Source Files\Parameters">
       <UniqueIdentifier>{f3f0ea63-64b1-4dde-b37a-4bec8b8f9017}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Statistics">
+    <Filter Include="Source Files\Statistics">
       <UniqueIdentifier>{cfaaddcd-a1e6-47e1-b1ac-d1ca3e96926c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{8cee7b45-663a-485c-a4ed-8067da55b93a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Instrument">
+      <UniqueIdentifier>{3b7d368d-847d-4ddd-b781-7060e88cf6f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Random.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleMonteCarlo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PayOff.h">
-      <Filter>PayOff</Filter>
+      <Filter>Source Files\PayOff</Filter>
     </ClInclude>
     <ClInclude Include="Option.h">
-      <Filter>Instrument</Filter>
+      <Filter>Source Files\Instrument</Filter>
     </ClInclude>
     <ClInclude Include="Parameter.h">
-      <Filter>Parameters</Filter>
+      <Filter>Source Files\Parameters</Filter>
     </ClInclude>
-    <ClInclude Include="Statistics.h">
-      <Filter>Statistics</Filter>
+    <ClInclude Include="Random.h">
+      <Filter>Source Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="ConvergenceTable.h">
-      <Filter>Statistics</Filter>
+    <ClInclude Include="SimpleMonteCarlo.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StatisticsGatherer.h">
+      <Filter>Source Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvergenceTableGatherer.h">
+      <Filter>Source Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="MeanGatherer.h">
+      <Filter>Source Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultSet.h">
+      <Filter>Source Files\Statistics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Random.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SimpleMonteCarlo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PayOff.cpp">
-      <Filter>PayOff</Filter>
+      <Filter>Source Files\PayOff</Filter>
     </ClCompile>
     <ClCompile Include="Option.cpp">
-      <Filter>Instrument</Filter>
+      <Filter>Source Files\Instrument</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Parameter.cpp">
-      <Filter>Parameters</Filter>
+      <Filter>Source Files\Parameters</Filter>
     </ClCompile>
-    <ClCompile Include="Statistics.cpp">
-      <Filter>Statistics</Filter>
+    <ClCompile Include="Random.cpp">
+      <Filter>Source Files\Util</Filter>
     </ClCompile>
-    <ClCompile Include="ConvergenceTable.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ConvergenceTableGatherer.cpp">
+      <Filter>Source Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="MeanGatherer.cpp">
+      <Filter>Source Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="StatisticsGatherer.cpp">
+      <Filter>Source Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultSet.cpp">
+      <Filter>Source Files\Statistics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

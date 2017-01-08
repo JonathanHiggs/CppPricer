@@ -2,7 +2,7 @@
 
 #include "Option.h"
 #include "Parameter.h"
-#include "Statistics.h"
+#include "StatisticsGatherer.h"
 
 
 void SimpleMonteCarlo(
@@ -11,5 +11,5 @@ void SimpleMonteCarlo(
 	const Parameter& vol,
 	const Parameter& discountRate,
 	unsigned long numberOfPaths,
-	Statistics& gatherer
+	StatisticsGatherer& gatherer
 );
