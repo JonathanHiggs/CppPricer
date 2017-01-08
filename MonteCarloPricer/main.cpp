@@ -20,30 +20,30 @@ int main()
 	double strike = 85;
 
 	StatisticsMean callOptionStats;
-	VanillaOption* callOption = new VanillaOption(new PayOffCall(strike), expiry);
+	VanillaOption callOption(new PayOffCall(strike), expiry);
 
 	StatisticsMean putOptionStats;
-	VanillaOption* putOption = new VanillaOption(new PayOffPut(strike), expiry);
+	VanillaOption putOption(new PayOffPut(strike), expiry);
 
 	StatisticsMean digitalCallOptionStats;
-	VanillaOption* digitalCallOption = new VanillaOption(new PayOffDigitalCall(strike), expiry);
+	VanillaOption digitalCallOption(new PayOffDigitalCall(strike), expiry);
 	
 	StatisticsMean digitalPutOptionStats;
-	VanillaOption* digitalPutOption = new VanillaOption(new PayOffDigitalPut(strike), expiry);
+	VanillaOption digitalPutOption(new PayOffDigitalPut(strike), expiry);
 	
 	StatisticsMean doubleDigitalOptionStats;
-	VanillaOption* doubleDigitalOption = new VanillaOption(new PayOffDoubleDigital(82.0, 85.0), expiry);
+	VanillaOption doubleDigitalOption(new PayOffDoubleDigital(82.0, 85.0), expiry);
 	
 	double spot = 80;
 	ParameterConstant vol(0.05);
 	ParameterConstant discountRate(0.05);
 	unsigned long numberOfPaths = 1000000;
 
-	SimpleMonteCarlo(*callOption, spot, vol, discountRate, numberOfPaths, callOptionStats);
-	SimpleMonteCarlo(*putOption, spot, vol, discountRate, numberOfPaths, putOptionStats);
-	SimpleMonteCarlo(*digitalCallOption, spot, vol, discountRate, numberOfPaths, digitalCallOptionStats);
-	SimpleMonteCarlo(*digitalPutOption, spot, vol, discountRate, numberOfPaths, digitalPutOptionStats);
-	SimpleMonteCarlo(*doubleDigitalOption,  spot, vol, discountRate, numberOfPaths, doubleDigitalOptionStats);
+	SimpleMonteCarlo(callOption, spot, vol, discountRate, numberOfPaths, callOptionStats);
+	SimpleMonteCarlo(putOption, spot, vol, discountRate, numberOfPaths, putOptionStats);
+	SimpleMonteCarlo(digitalCallOption, spot, vol, discountRate, numberOfPaths, digitalCallOptionStats);
+	SimpleMonteCarlo(digitalPutOption, spot, vol, discountRate, numberOfPaths, digitalPutOptionStats);
+	SimpleMonteCarlo(doubleDigitalOption,  spot, vol, discountRate, numberOfPaths, doubleDigitalOptionStats);
 
 	cout << "The call price is:           " << callOptionStats.GetResultsSoFar()[0][0] << endl;
 	cout << "The put price is:            " << putOptionStats.GetResultsSoFar()[0][0] << endl;
