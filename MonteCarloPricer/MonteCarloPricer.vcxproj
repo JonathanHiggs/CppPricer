@@ -148,7 +148,6 @@
     <ClInclude Include="Option.h" />
     <ClInclude Include="Parameter.h" />
     <ClInclude Include="PayOff.h" />
-    <ClInclude Include="PayOffBridge.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="SimpleMonteCarlo.h" />
     <ClInclude Include="stdafx.h" />
@@ -159,7 +158,6 @@
     <ClCompile Include="Option.cpp" />
     <ClCompile Include="Parameter.cpp" />
     <ClCompile Include="PayOff.cpp" />
-    <ClCompile Include="PayOffBridge.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="SimpleMonteCarlo.cpp" />
     <ClCompile Include="stdafx.cpp">
