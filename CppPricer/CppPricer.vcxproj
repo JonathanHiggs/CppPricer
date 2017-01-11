@@ -153,7 +153,13 @@
     <ClInclude Include="NumberOfPathsResult.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="Parameter.h" />
+    <ClInclude Include="ParameterConstant.h" />
     <ClInclude Include="PayOff.h" />
+    <ClInclude Include="PayOffCall.h" />
+    <ClInclude Include="PayOffDigitalCall.h" />
+    <ClInclude Include="PayOffDigitalPut.h" />
+    <ClInclude Include="PayOffDoubleDigital.h" />
+    <ClInclude Include="PayOffPut.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="ResultSet.h" />
     <ClInclude Include="ResultTable.h" />
@@ -169,7 +175,12 @@
     <ClCompile Include="NumberOfPathsResult.cpp" />
     <ClCompile Include="Option.cpp" />
     <ClCompile Include="Parameter.cpp" />
-    <ClCompile Include="PayOff.cpp" />
+    <ClCompile Include="ParameterConstant.cpp" />
+    <ClCompile Include="PayOffCall.cpp" />
+    <ClCompile Include="PayOffDigitalCall.cpp" />
+    <ClCompile Include="PayOffDigitalPut.cpp" />
+    <ClCompile Include="PayOffDoubleDigital.cpp" />
+    <ClCompile Include="PayOffPut.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="ResultSet.cpp" />
     <ClCompile Include="ResultTable.cpp" />

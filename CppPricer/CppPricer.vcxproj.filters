@@ -1,3 +1,150 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="ConvergenceTableGatherer.cpp">
+      <Filter>Source\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="MeanGatherer.cpp">
+      <Filter>Source\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="MeanResult.cpp">
+      <Filter>Source\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberOfPathsResult.cpp">
+      <Filter>Source\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultSet.cpp">
+      <Filter>Source\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultTable.cpp">
+      <Filter>Source\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="StatisticsResult.cpp">
+      <Filter>Source\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Option.cpp">
+      <Filter>Source\Instruments</Filter>
+    </ClCompile>
+    <ClCompile Include="MonteCarloService.cpp">
+      <Filter>Source\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="Parameter.cpp">
+      <Filter>Source\Parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ParameterConstant.cpp">
+      <Filter>Source\Parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="PayOffCall.cpp">
+      <Filter>Source\Instruments</Filter>
+    </ClCompile>
+    <ClCompile Include="PayOffPut.cpp">
+      <Filter>Source\Instruments</Filter>
+    </ClCompile>
+    <ClCompile Include="PayOffDigitalCall.cpp">
+      <Filter>Source\Instruments</Filter>
+    </ClCompile>
+    <ClCompile Include="PayOffDigitalPut.cpp">
+      <Filter>Source\Instruments</Filter>
+    </ClCompile>
+    <ClCompile Include="PayOffDoubleDigital.cpp">
+      <Filter>Source\Instruments</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ConvergenceTableGatherer.h">
+      <Filter>Source\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="MeanGatherer.h">
+      <Filter>Source\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="MeanResult.h">
+      <Filter>Source\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberOfPathsResult.h">
+      <Filter>Source\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultSet.h">
+      <Filter>Source\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultTable.h">
+      <Filter>Source\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="StatisticsGatherer.h">
+      <Filter>Source\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="StatisticsResult.h">
+      <Filter>Source\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Source\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.h">
+      <Filter>Source\Instruments</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOff.h">
+      <Filter>Source\Instruments</Filter>
+    </ClInclude>
+    <ClInclude Include="MonteCarloService.h">
+      <Filter>Source\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="Parameter.h">
+      <Filter>Source\Parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="ParameterConstant.h">
+      <Filter>Source\Parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOffCall.h">
+      <Filter>Source\Instruments</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOffPut.h">
+      <Filter>Source\Instruments</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOffDigitalCall.h">
+      <Filter>Source\Instruments</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOffDigitalPut.h">
+      <Filter>Source\Instruments</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOffDoubleDigital.h">
+      <Filter>Source\Instruments</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{11fcd3ff-99b4-475e-8064-f81e1080d8c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Instruments">
+      <UniqueIdentifier>{86156cc4-8b72-4d60-88ce-e70b9f72a7f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Parameters">
+      <UniqueIdentifier>{23aaea25-89f1-43a6-95ae-6d2466388de6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Util">
+      <UniqueIdentifier>{93715bea-70bb-4d9c-b315-e31b36e167a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Service">
+      <UniqueIdentifier>{3cc7236f-b063-4240-8f92-ff69a1fbba25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Statistics">
+      <UniqueIdentifier>{0f3584fd-5e9a-4a98-ad74-f74804ba28f5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
 </Project>
