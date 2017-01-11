@@ -4,13 +4,17 @@
 #include "StatisticsResult.h"
 
 
-class MeanResult : public StatisticResult
-{
-public:
-	MeanResult(double mean);
+namespace Pricer {
+	namespace Statistics {
+		class MeanResult : public StatisticResult
+		{
+		public:
+			MeanResult(double mean);
 
-	virtual void Serialize(std::ostream& os) const;
+			virtual void Serialize(std::ostream& os) const;
 
-private:
-	double mean;
-};
+		private:
+			double mean;
+		};
+	}
+}

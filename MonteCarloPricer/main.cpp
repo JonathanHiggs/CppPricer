@@ -15,6 +15,10 @@
 
 
 using namespace std;
+using namespace Pricer::Instrument;
+using namespace Pricer::Parameters;
+using namespace Pricer::Service;
+using namespace Pricer::Statistics;
 
 
 void runMontaCarlo()

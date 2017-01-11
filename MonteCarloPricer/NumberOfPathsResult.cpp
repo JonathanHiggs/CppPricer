@@ -5,6 +5,10 @@
 using namespace std;
 
 
-NumberOfPathsResult::NumberOfPathsResult(int numberOfPaths)
-	: numberOfPaths(numberOfPaths)
-{}
+namespace Pricer {
+	namespace Statistics {
+		NumberOfPathsResult::NumberOfPathsResult(int numberOfPaths)
+			: numberOfPaths(numberOfPaths)
+		{}
+	}
+}

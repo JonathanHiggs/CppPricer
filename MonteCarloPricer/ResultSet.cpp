@@ -5,22 +5,26 @@
 using namespace std;
 
 
-ResultSet::ResultSet()
-	: results()
-{}
+namespace Pricer {
+	namespace Statistics {
+		ResultSet::ResultSet()
+			: results()
+		{}
 
 
-ResultSet::ResultSet(size_t size)
-	: results(size)
-{}
+		ResultSet::ResultSet(size_t size)
+			: results(size)
+		{}
 
 
-ostream& operator<<(ostream& os, const ResultSet& results)
-{
-	for (auto i = 0; i < results.Count(); i++)
-	{
-		os << results[i] << "\t";
+		ostream& operator<<(ostream& os, const ResultSet& results)
+		{
+			for (auto i = 0; i < results.Count(); i++)
+			{
+				os << results[i] << "\t";
+			}
+
+			return os;
+		}
 	}
-
-	return os;
 }

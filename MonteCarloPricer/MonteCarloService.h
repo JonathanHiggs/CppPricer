@@ -6,17 +6,21 @@
 #include "StatisticsGatherer.h"
 
 
-class MonteCarloService
-{
-public:
-	MonteCarloService();
+namespace Pricer {
+	namespace Service {
+		class MonteCarloService
+		{
+		public:
+			MonteCarloService();
 
-	void Run(
-		const VanillaOption& option,
-		double spot,
-		const Parameter& volatility,
-		const Parameter& discountRate,
-		unsigned long numberOfPaths,
-		StatisticsGatherer& statisticsGatherer
-	) const;
-};
+			void Run(
+				const Pricer::Instrument::VanillaOption& option,
+				double spot,
+				const Pricer::Parameters::Parameter& volatility,
+				const Pricer::Parameters::Parameter& discountRate,
+				unsigned long numberOfPaths,
+				Pricer::Statistics::StatisticsGatherer& statisticsGatherer
+			) const;
+		};
+	}
+}

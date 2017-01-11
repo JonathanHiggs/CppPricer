@@ -7,38 +7,42 @@
 using namespace std;
 
 
-MeanGatherer::MeanGatherer()
-	: runningSum(0.0), pathsDone(0UL)
-{}
+namespace Pricer {
+	namespace Statistics {
+		MeanGatherer::MeanGatherer()
+			: runningSum(0.0), pathsDone(0UL)
+		{}
 
 
-unique_ptr<StatisticsGatherer> MeanGatherer::clone() const
-{
-	return unique_ptr<StatisticsGatherer>(new MeanGatherer(*this));
-}
+		unique_ptr<StatisticsGatherer> MeanGatherer::clone() const
+		{
+			return unique_ptr<StatisticsGatherer>(new MeanGatherer(*this));
+		}
 
 
-void MeanGatherer::DumpOneResult(double result)
-{
-	pathsDone++;
-	runningSum += result;
-}
+		void MeanGatherer::DumpOneResult(double result)
+		{
+			pathsDone++;
+			runningSum += result;
+		}
 
 
-ResultSet MeanGatherer::GetResultsSoFar() const
-{
-	ResultSet results;
+		ResultSet MeanGatherer::GetResultsSoFar() const
+		{
+			ResultSet results;
 
-	shared_ptr<StatisticResult> result{new MeanResult(runningSum / pathsDone)};
+			shared_ptr<StatisticResult> result{ new MeanResult(runningSum / pathsDone) };
 
-	results.Append(result);
+			results.Append(result);
 
-	return results;
-}
+			return results;
+		}
 
 
-void MeanGatherer::Reset()
-{
-	runningSum = 0.0;
-	pathsDone = 0UL;
+		void MeanGatherer::Reset()
+		{
+			runningSum = 0.0;
+			pathsDone = 0UL;
+		}
+	}
 }

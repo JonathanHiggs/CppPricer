@@ -5,9 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\PayOff">
-      <UniqueIdentifier>{5e2eebc2-c7bc-49ef-ad08-2da6aa425ef4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Parameters">
       <UniqueIdentifier>{f3f0ea63-64b1-4dde-b37a-4bec8b8f9017}</UniqueIdentifier>
     </Filter>
@@ -20,10 +17,6 @@
     <Filter Include="Source Files\Instrument">
       <UniqueIdentifier>{3b7d368d-847d-4ddd-b781-7060e88cf6f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Source Files\Service">
       <UniqueIdentifier>{24df8047-9ed5-4c65-adb5-9b9d8183b506}</UniqueIdentifier>
     </Filter>
@@ -32,9 +25,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PayOff.h">
-      <Filter>Source Files\PayOff</Filter>
-    </ClInclude>
     <ClInclude Include="Option.h">
       <Filter>Source Files\Instrument</Filter>
     </ClInclude>
@@ -77,13 +67,13 @@
     <ClInclude Include="MonteCarloService.h">
       <Filter>Source Files\Service</Filter>
     </ClInclude>
+    <ClInclude Include="PayOff.h">
+      <Filter>Source Files\Instrument</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PayOff.cpp">
-      <Filter>Source Files\PayOff</Filter>
     </ClCompile>
     <ClCompile Include="Option.cpp">
       <Filter>Source Files\Instrument</Filter>
@@ -120,6 +110,9 @@
     </ClCompile>
     <ClCompile Include="MonteCarloService.cpp">
       <Filter>Source Files\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="PayOff.cpp">
+      <Filter>Source Files\Instrument</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

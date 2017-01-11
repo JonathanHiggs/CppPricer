@@ -4,13 +4,17 @@
 #include "StatisticsResult.h"
 
 
-class NumberOfPathsResult : public StatisticResult
-{
-public:
-	NumberOfPathsResult(int numberOfPaths);
+namespace Pricer {
+	namespace Statistics {
+		class NumberOfPathsResult : public StatisticResult
+		{
+		public:
+			NumberOfPathsResult(int numberOfPaths);
 
-	virtual void Serialize(std::ostream& os) const { os << numberOfPaths; };
+			virtual void Serialize(std::ostream& os) const { os << numberOfPaths; };
 
-private:
-	int numberOfPaths;
-};
+		private:
+			int numberOfPaths;
+		};
+	}
+}

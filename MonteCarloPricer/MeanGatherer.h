@@ -4,17 +4,21 @@
 #include "StatisticsGatherer.h"
 
 
-class MeanGatherer : public StatisticsGatherer
-{
-public:
-	MeanGatherer();
-	virtual std::unique_ptr<StatisticsGatherer> clone() const;
+namespace Pricer {
+	namespace Statistics {
+		class MeanGatherer : public StatisticsGatherer
+		{
+		public:
+			MeanGatherer();
+			virtual std::unique_ptr<StatisticsGatherer> clone() const;
 
-	virtual void DumpOneResult(double result);
-	virtual ResultSet GetResultsSoFar() const;
-	virtual void Reset();
+			virtual void DumpOneResult(double result);
+			virtual ResultSet GetResultsSoFar() const;
+			virtual void Reset();
 
-private:
-	double runningSum;
-	unsigned long pathsDone;
-};
+		private:
+			double runningSum;
+			unsigned long pathsDone;
+		};
+	}
+}

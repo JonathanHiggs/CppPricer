@@ -5,12 +5,16 @@
 using namespace std;
 
 
-MeanResult::MeanResult(double mean)
-	: mean(mean)
-{}
+namespace Pricer {
+	namespace Statistics {
+		MeanResult::MeanResult(double mean)
+			: mean(mean)
+		{}
 
 
-void MeanResult::Serialize(ostream& os) const
-{
-	os << mean;
+		void MeanResult::Serialize(ostream& os) const
+		{
+			os << mean;
+		}
+	}
 }

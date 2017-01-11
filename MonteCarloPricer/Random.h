@@ -1,5 +1,9 @@
 #pragma once
 
 
-double getOneGaussianBySimulation();
-double getOneGaussianByBoxMiller();
+namespace Pricer {
+	namespace Util {
+		double getOneGaussianBySimulation();
+		double getOneGaussianByBoxMiller();
+	}
+}
