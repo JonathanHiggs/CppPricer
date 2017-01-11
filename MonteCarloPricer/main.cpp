@@ -2,7 +2,8 @@
 
 
 #include "stdafx.h"
-#include "SimpleMonteCarlo.h"
+#include "Parameter.h"
+#include "MonteCarloService.h"
 #include "Option.h"
 #include "PayOff.h"
 #include "StatisticsGatherer.h"
@@ -16,7 +17,7 @@
 using namespace std;
 
 
-int main()
+void runMontaCarlo()
 {
 	double expiry = 1;
 	double strike = 85;
@@ -41,11 +42,13 @@ int main()
 	ParameterConstant discountRate(0.05);
 	unsigned long numberOfPaths = 1000000;
 
-	SimpleMonteCarlo(callOption, spot, vol, discountRate, numberOfPaths, callOptionStats);
-	SimpleMonteCarlo(putOption, spot, vol, discountRate, numberOfPaths, putOptionStats);
-	SimpleMonteCarlo(digitalCallOption, spot, vol, discountRate, numberOfPaths, digitalCallOptionStats);
-	SimpleMonteCarlo(digitalPutOption, spot, vol, discountRate, numberOfPaths, digitalPutOptionStats);
-	SimpleMonteCarlo(doubleDigitalOption,  spot, vol, discountRate, numberOfPaths, doubleDigitalOptionStats);
+	MonteCarloService monteCarloService{};
+	
+	monteCarloService.Run(callOption, spot, vol, discountRate, numberOfPaths, callOptionStats);
+	monteCarloService.Run(putOption, spot, vol, discountRate, numberOfPaths, putOptionStats);
+	monteCarloService.Run(digitalCallOption, spot, vol, discountRate, numberOfPaths, digitalCallOptionStats);
+	monteCarloService.Run(digitalPutOption, spot, vol, discountRate, numberOfPaths, digitalPutOptionStats);
+	monteCarloService.Run(doubleDigitalOption,  spot, vol, discountRate, numberOfPaths, doubleDigitalOptionStats);
 
 	cout << "The call option results:" << endl << callOptionStats.GetResultTable() << endl << endl;
 
@@ -54,7 +57,10 @@ int main()
 	cout << "The digital call price is:   " << digitalCallOptionStats.GetResultsSoFar() << endl;
 	cout << "The digital put price is:    " << digitalPutOptionStats.GetResultsSoFar() << endl;
 	cout << "The double digital price is: " << doubleDigitalOptionStats.GetResultsSoFar() << endl;
-
-	return 0;
 }
 
+
+int main()
+{
+	runMontaCarlo();
+}

@@ -24,6 +24,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Service">
+      <UniqueIdentifier>{24df8047-9ed5-4c65-adb5-9b9d8183b506}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -40,9 +43,6 @@
     </ClInclude>
     <ClInclude Include="Random.h">
       <Filter>Source Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleMonteCarlo.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Source Files</Filter>
@@ -74,12 +74,12 @@
     <ClInclude Include="NumberOfPathsResult.h">
       <Filter>Source Files\Statistics</Filter>
     </ClInclude>
+    <ClInclude Include="MonteCarloService.h">
+      <Filter>Source Files\Service</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleMonteCarlo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PayOff.cpp">
@@ -117,6 +117,9 @@
     </ClCompile>
     <ClCompile Include="NumberOfPathsResult.cpp">
       <Filter>Source Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="MonteCarloService.cpp">
+      <Filter>Source Files\Service</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

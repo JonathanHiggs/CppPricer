@@ -148,6 +148,7 @@
     <ClInclude Include="ConvergenceTableGatherer.h" />
     <ClInclude Include="MeanGatherer.h" />
     <ClInclude Include="MeanResult.h" />
+    <ClInclude Include="MonteCarloService.h" />
     <ClInclude Include="NumberOfPathsResult.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="Parameter.h" />
@@ -155,7 +156,6 @@
     <ClInclude Include="Random.h" />
     <ClInclude Include="ResultSet.h" />
     <ClInclude Include="ResultTable.h" />
-    <ClInclude Include="SimpleMonteCarlo.h" />
     <ClInclude Include="StatisticsGatherer.h" />
     <ClInclude Include="StatisticsResult.h" />
     <ClInclude Include="stdafx.h" />
@@ -172,8 +172,8 @@
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="ResultSet.cpp" />
     <ClCompile Include="ResultTable.cpp" />
-    <ClCompile Include="SimpleMonteCarlo.cpp" />
     <ClCompile Include="MeanGatherer.cpp" />
+    <ClCompile Include="MonteCarloService.cpp" />
     <ClCompile Include="StatisticsResult.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

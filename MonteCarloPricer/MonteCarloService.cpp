@@ -1,40 +1,39 @@
 #include "stdafx.h"
+#include "MonteCarloService.h"
 #include "Random.h"
-#include "PayOff.h"
-#include "Option.h"
-#include "Parameter.h"
-#include "StatisticsGatherer.h"
 #include <cmath>
 
-#if !defined(_MSC_VER)
+
 using namespace std;
-#endif
 
 
-void SimpleMonteCarlo(
+MonteCarloService::MonteCarloService()
+{}
+
+
+void MonteCarloService::Run(
 	const VanillaOption& option,
 	double spot,
-	const Parameter& vol,
+	const Parameter& volatility,
 	const Parameter& discountRate,
 	unsigned long numberOfPaths,
-	StatisticsGatherer& gatherer)
+	StatisticsGatherer& gatherer
+) const
 {
 	double expiry = option.GetExpiry();
-	double variance = vol.IntegralSquare(0, expiry);
+	double variance = volatility.IntegralSquare(0, expiry);
 	double rootVariance = sqrt(variance);
 	double itoCorrection = -0.5 * variance;
 
 	double movedSpot = spot * exp(discountRate.Integral(0, expiry) + itoCorrection);
 	double discount = exp(-discountRate.Integral(0, expiry));
-	double thisSpot, thisGaussian, thisPayOff;
+	double thisSpot, thisGausian, thisPayOff;
 
-	for (unsigned long i = 0; i < numberOfPaths; i++)
+	for (auto i = 0; i < numberOfPaths; i++)
 	{
-		thisGaussian = getOneGaussianByBoxMiller();
-		thisSpot = movedSpot * exp(rootVariance * thisGaussian);
+		thisGausian = getOneGaussianByBoxMiller();
+		thisSpot = movedSpot * exp(rootVariance * thisGausian);
 		thisPayOff = option.OptionPayOff(thisSpot);
 		gatherer.DumpOneResult(thisPayOff * discount);
 	}
-
-	return;
 }
