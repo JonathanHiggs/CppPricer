@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Random.h"
+#include "Normals.h"
 #include <random>
 #include <cstdlib>
 #include <cmath>
@@ -7,8 +8,33 @@
 
 using namespace std;
 
+
 namespace Pricer {
 	namespace Util {
+
+		RandomBase::RandomBase(unsigned long dimensionality)
+			: dimensionality(dimensionality)
+		{}
+
+
+		void RandomBase::GetGaussians(vector<double>& variates)
+		{
+			GetUniforms(variates);
+
+			for (unsigned long i = 0; i < dimensionality; i++)
+			{
+				double x = variates[i];
+				variates[i] = InverseCumulativeNormal(x);
+			}
+		}
+
+
+		void RandomBase::ResetDimensionality(unsigned long newDimensionality)
+		{
+			dimensionality = newDimensionality;
+		}
+
+
 		double getOneGaussianBySimulation() {
 			double result = 0;
 

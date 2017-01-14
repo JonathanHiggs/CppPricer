@@ -146,14 +146,17 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AntiThetic.h" />
     <ClInclude Include="ConvergenceTableGatherer.h" />
     <ClInclude Include="MeanGatherer.h" />
     <ClInclude Include="MeanResult.h" />
     <ClInclude Include="MonteCarloService.h" />
+    <ClInclude Include="Normals.h" />
     <ClInclude Include="NumberOfPathsResult.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="Parameter.h" />
     <ClInclude Include="ParameterConstant.h" />
+    <ClInclude Include="ParkMiller.h" />
     <ClInclude Include="PayOff.h" />
     <ClInclude Include="PayOffCall.h" />
     <ClInclude Include="PayOffDigitalCall.h" />
@@ -161,6 +164,7 @@
     <ClInclude Include="PayOffDoubleDigital.h" />
     <ClInclude Include="PayOffPut.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="RandomParkMiller.h" />
     <ClInclude Include="ResultSet.h" />
     <ClInclude Include="ResultTable.h" />
     <ClInclude Include="StatisticsGatherer.h" />
@@ -169,19 +173,23 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AntiThetic.cpp" />
     <ClCompile Include="ConvergenceTableGatherer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MeanResult.cpp" />
+    <ClCompile Include="Normals.cpp" />
     <ClCompile Include="NumberOfPathsResult.cpp" />
     <ClCompile Include="Option.cpp" />
     <ClCompile Include="Parameter.cpp" />
     <ClCompile Include="ParameterConstant.cpp" />
+    <ClCompile Include="ParkMiller.cpp" />
     <ClCompile Include="PayOffCall.cpp" />
     <ClCompile Include="PayOffDigitalCall.cpp" />
     <ClCompile Include="PayOffDigitalPut.cpp" />
     <ClCompile Include="PayOffDoubleDigital.cpp" />
     <ClCompile Include="PayOffPut.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="RandomParkMiller.cpp" />
     <ClCompile Include="ResultSet.cpp" />
     <ClCompile Include="ResultTable.cpp" />
     <ClCompile Include="MeanGatherer.cpp" />

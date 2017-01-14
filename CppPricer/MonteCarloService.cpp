@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "MonteCarloService.h"
-#include "Random.h"
 #include <cmath>
+#include <memory>
 
 
 using namespace std;
@@ -13,7 +13,8 @@ using namespace Pricer::Util;
 
 namespace Pricer {
 	namespace Service {
-		MonteCarloService::MonteCarloService()
+		MonteCarloService::MonteCarloService(unique_ptr<RandomBase>& generator)
+			: generator(move(generator))
 		{}
 
 
@@ -26,6 +27,8 @@ namespace Pricer {
 			StatisticsGatherer& gatherer
 		) const
 		{
+			generator->ResetDimensionality(1);
+
 			double expiry = option.GetExpiry();
 			double variance = volatility.IntegralSquare(0, expiry);
 			double rootVariance = sqrt(variance);
@@ -33,12 +36,13 @@ namespace Pricer {
 
 			double movedSpot = spot * exp(discountRate.Integral(0, expiry) + itoCorrection);
 			double discount = exp(-discountRate.Integral(0, expiry));
-			double thisSpot, thisGausian, thisPayOff;
+			double thisSpot, thisPayOff;
+			vector<double> variate(1);
 
-			for (auto i = 0; i < numberOfPaths; i++)
+			for (unsigned long i = 0; i < numberOfPaths; i++)
 			{
-				thisGausian = getOneGaussianByBoxMiller();
-				thisSpot = movedSpot * exp(rootVariance * thisGausian);
+				generator->GetGaussians(variate);
+				thisSpot = movedSpot * exp(rootVariance * variate[0]);
 				thisPayOff = option.OptionPayOff(thisSpot);
 				gatherer.DumpOneResult(thisPayOff * discount);
 			}

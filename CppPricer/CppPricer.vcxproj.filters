@@ -58,6 +58,18 @@
     <ClCompile Include="PayOffDoubleDigital.cpp">
       <Filter>Source\Instruments</Filter>
     </ClCompile>
+    <ClCompile Include="ParkMiller.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomParkMiller.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="AntiThetic.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Normals.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvergenceTableGatherer.h">
@@ -122,6 +134,18 @@
     </ClInclude>
     <ClInclude Include="PayOffDoubleDigital.h">
       <Filter>Source\Instruments</Filter>
+    </ClInclude>
+    <ClInclude Include="Normals.h">
+      <Filter>Source\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ParkMiller.h">
+      <Filter>Source\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomParkMiller.h">
+      <Filter>Source\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="AntiThetic.h">
+      <Filter>Source\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

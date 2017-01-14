@@ -3,7 +3,9 @@
 
 #include "Option.h"
 #include "Parameter.h"
+#include "Random.h"
 #include "StatisticsGatherer.h"
+#include <memory>
 
 
 namespace Pricer {
@@ -11,7 +13,7 @@ namespace Pricer {
 		class MonteCarloService
 		{
 		public:
-			MonteCarloService();
+			MonteCarloService(std::unique_ptr<Util::RandomBase>& generator);
 
 			void Run(
 				const Pricer::Instrument::VanillaOption& option,
@@ -21,6 +23,9 @@ namespace Pricer {
 				unsigned long numberOfPaths,
 				Pricer::Statistics::StatisticsGatherer& statisticsGatherer
 			) const;
+
+		private:
+			std::unique_ptr<Util::RandomBase> generator;
 		};
 	}
 }

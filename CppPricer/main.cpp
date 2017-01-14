@@ -2,19 +2,23 @@
 
 
 #include "stdafx.h"
-#include "Parameter.h"
-#include "ParameterConstant.h"
+
+#include "AntiThetic.h"
+#include "ConvergenceTableGatherer.h"
+#include "MeanGatherer.h"
 #include "MonteCarloService.h"
 #include "Option.h"
+#include "Parameter.h"
+#include "ParameterConstant.h"
 #include "PayOff.h"
 #include "PayOffCall.h"
 #include "PayOffPut.h"
 #include "PayOffDigitalCall.h"
 #include "PayOffDigitalPut.h"
 #include "PayOffDoubleDigital.h"
+#include "RandomParkMiller.h"
 #include "StatisticsGatherer.h"
-#include "MeanGatherer.h"
-#include "ConvergenceTableGatherer.h"
+
 #include <iostream>
 #include <string>
 #include <memory>
@@ -25,6 +29,7 @@ using namespace Pricer::Instrument;
 using namespace Pricer::Parameters;
 using namespace Pricer::Service;
 using namespace Pricer::Statistics;
+using namespace Pricer::Util;
 
 
 void runMontaCarlo()
@@ -52,7 +57,9 @@ void runMontaCarlo()
 	ParameterConstant discountRate(0.05);
 	unsigned long numberOfPaths = 1000000;
 
-	MonteCarloService monteCarloService{};
+	unique_ptr<RandomBase> innerGenerator(new RandomParkMiller(1));
+	unique_ptr<RandomBase> generator(new AntiThetic(innerGenerator));
+	MonteCarloService monteCarloService{generator};
 	
 	monteCarloService.Run(callOption, spot, vol, discountRate, numberOfPaths, callOptionStats);
 	monteCarloService.Run(putOption, spot, vol, discountRate, numberOfPaths, putOptionStats);
