@@ -10,6 +10,7 @@ namespace Pricer {
 		class AntiThetic : public RandomBase
 		{
 		public:
+			AntiThetic(std::unique_ptr<RandomBase> innerGenerator);
 			AntiThetic(std::unique_ptr<RandomBase>& innerGenerator);
 
 			virtual std::unique_ptr<RandomBase> Clone() const;

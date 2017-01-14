@@ -8,7 +8,7 @@ using namespace std;
 namespace Pricer {
 	namespace Util {
 
-		RandomParkMiller::RandomParkMiller(unsigned long dimensionality, unsigned long seed)
+		RandomParkMiller::RandomParkMiller(const unsigned long dimensionality, unsigned long seed)
 			: RandomBase(dimensionality), innerGenerator(seed), initialSeed(seed)
 		{
 			reciprocal = 1.0 / (1.0 + innerGenerator.Max());
@@ -17,7 +17,7 @@ namespace Pricer {
 
 		unique_ptr<RandomBase> RandomParkMiller::Clone() const
 		{
-			return unique_ptr<RandomBase>(new RandomParkMiller(*this));
+			return make_unique<RandomParkMiller>(GetDimensionality(), initialSeed);
 		}
 
 

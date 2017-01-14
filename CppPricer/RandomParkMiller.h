@@ -11,7 +11,7 @@ namespace Pricer {
 		class RandomParkMiller : public RandomBase
 		{
 		public:
-			RandomParkMiller(unsigned long dimensionality, unsigned long seed = 1);
+			RandomParkMiller(const unsigned long dimensionality, unsigned long seed = 1);
 
 			virtual std::unique_ptr<RandomBase> Clone() const;
 			virtual void GetUniforms(std::vector<double>& variates);

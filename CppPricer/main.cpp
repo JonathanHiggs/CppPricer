@@ -37,29 +37,28 @@ void runMontaCarlo()
 	double expiry = 1;
 	double strike = 85;
 
-	ConvergenceTableGatherer callOptionStats(unique_ptr<StatisticsGatherer>(new MeanGatherer()));
-	VanillaOption callOption(new PayOffCall(strike), expiry);
+	ConvergenceTableGatherer callOptionStats(make_unique<MeanGatherer>());
+	VanillaOption callOption(make_unique<PayOffCall>(strike), expiry);
 
 	MeanGatherer putOptionStats;
-	VanillaOption putOption(new PayOffPut(strike), expiry);
+	VanillaOption putOption(make_unique<PayOffPut>(strike), expiry);
 
 	MeanGatherer digitalCallOptionStats;
-	VanillaOption digitalCallOption(new PayOffDigitalCall(strike), expiry);
+	VanillaOption digitalCallOption(make_unique<PayOffDigitalCall>(strike), expiry);
 	
 	MeanGatherer digitalPutOptionStats;
-	VanillaOption digitalPutOption(new PayOffDigitalPut(strike), expiry);
+	VanillaOption digitalPutOption(make_unique<PayOffDigitalPut>(strike), expiry);
 	
 	MeanGatherer doubleDigitalOptionStats;
-	VanillaOption doubleDigitalOption(new PayOffDoubleDigital(82.0, 85.0), expiry);
+	VanillaOption doubleDigitalOption(make_unique<PayOffDoubleDigital>(82.0, 85.0), expiry);
 	
 	double spot = 80;
 	ParameterConstant vol(0.05);
 	ParameterConstant discountRate(0.05);
 	unsigned long numberOfPaths = 1000000;
 
-	unique_ptr<RandomBase> innerGenerator(new RandomParkMiller(1));
-	unique_ptr<RandomBase> generator(new AntiThetic(innerGenerator));
-	MonteCarloService monteCarloService{generator};
+	unique_ptr<RandomBase> generator = make_unique<AntiThetic>(make_unique<RandomParkMiller>(1));
+	MonteCarloService monteCarloService(generator);
 	
 	monteCarloService.Run(callOption, spot, vol, discountRate, numberOfPaths, callOptionStats);
 	monteCarloService.Run(putOption, spot, vol, discountRate, numberOfPaths, putOptionStats);
@@ -77,7 +76,32 @@ void runMontaCarlo()
 }
 
 
+void testAntiTheticConvergence()
+{
+	unsigned long numberOfPaths = 1000000;
+	double expiry = 1.0, strike = 85.0, spot = 80.0;
+	ParameterConstant vol(0.05), discountRate(0.05);
+	
+	VanillaOption callOption(make_unique<PayOffCall>(strike), expiry);
+
+	ConvergenceTableGatherer gatherer(make_unique<MeanGatherer>());
+	unique_ptr<RandomBase> generator = make_unique<RandomParkMiller>(1);
+	MonteCarloService service(generator);
+	service.Run(callOption, spot, vol, discountRate, numberOfPaths, gatherer);
+
+	cout << "Normal sampling:" << endl << gatherer.GetResultTable() << endl;
+
+	ConvergenceTableGatherer antiTheticGatherer(make_unique<MeanGatherer>());
+	unique_ptr<RandomBase> antiTheticGenerator = make_unique<AntiThetic>(make_unique<RandomParkMiller>(1));
+	MonteCarloService antiTheticService(antiTheticGenerator);
+	antiTheticService.Run(callOption, spot, vol, discountRate, numberOfPaths, antiTheticGatherer);
+
+	cout << "AntiThetic sampling:" << endl << antiTheticGatherer.GetResultTable() << endl;
+}
+
+
 int main()
 {
-	runMontaCarlo();
+	//runMontaCarlo();
+	testAntiTheticConvergence();
 }

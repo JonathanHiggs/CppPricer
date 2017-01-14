@@ -9,11 +9,17 @@ using namespace std;
 namespace Pricer {
 	namespace Util {
 
-		AntiThetic::AntiThetic(unique_ptr<RandomBase>& generator)
-			: RandomBase(generator->GetDimensionality()), innerGenerator(move(generator))
+		AntiThetic::AntiThetic(unique_ptr<RandomBase> generator)
+			: RandomBase(generator->GetDimensionality()), innerGenerator(move(generator)), oddEven(true)
 		{
 			innerGenerator->Reset();
-			oddEven = true;
+			nextVariates.resize(GetDimensionality());
+		}
+
+		AntiThetic::AntiThetic(unique_ptr<RandomBase>& generator)
+			: RandomBase(generator->GetDimensionality()), innerGenerator(move(generator)), oddEven(true)
+		{
+			innerGenerator->Reset();
 			nextVariates.resize(GetDimensionality());
 		}
 
