@@ -6,19 +6,19 @@
 namespace Pricer {
 	namespace Instrument {
 		PayOffDigitalCall::PayOffDigitalCall(double strike)
-			: Strike(strike)
+			: strike(strike)
 		{}
 
 
 		double PayOffDigitalCall::operator()(double spot) const
 		{
-			return spot > Strike ? 1.0 : 0.0;
+			return spot > strike ? 1.0 : 0.0;
 		}
 
 
-		PayOffDigitalCall* PayOffDigitalCall::clone() const
+		PayOffDigitalCall* PayOffDigitalCall::Clone() const
 		{
-			return new PayOffDigitalCall(Strike);
+			return new PayOffDigitalCall(strike);
 		}
 	}
 }

@@ -38,19 +38,19 @@ void runMontaCarlo()
 	double strike = 85;
 
 	ConvergenceTableGatherer callOptionStats(make_unique<MeanGatherer>());
-	VanillaOption callOption(make_unique<PayOffCall>(strike), expiry);
+	Option callOption(make_unique<PayOffCall>(strike), expiry);
 
 	MeanGatherer putOptionStats;
-	VanillaOption putOption(make_unique<PayOffPut>(strike), expiry);
+	Option putOption(make_unique<PayOffPut>(strike), expiry);
 
 	MeanGatherer digitalCallOptionStats;
-	VanillaOption digitalCallOption(make_unique<PayOffDigitalCall>(strike), expiry);
+	Option digitalCallOption(make_unique<PayOffDigitalCall>(strike), expiry);
 	
 	MeanGatherer digitalPutOptionStats;
-	VanillaOption digitalPutOption(make_unique<PayOffDigitalPut>(strike), expiry);
+	Option digitalPutOption(make_unique<PayOffDigitalPut>(strike), expiry);
 	
 	MeanGatherer doubleDigitalOptionStats;
-	VanillaOption doubleDigitalOption(make_unique<PayOffDoubleDigital>(82.0, 85.0), expiry);
+	Option doubleDigitalOption(make_unique<PayOffDoubleDigital>(82.0, 85.0), expiry);
 	
 	double spot = 80;
 	ParameterConstant vol(0.05);
@@ -82,7 +82,7 @@ void testAntiTheticConvergence()
 	double expiry = 1.0, strike = 85.0, spot = 80.0;
 	ParameterConstant vol(0.05), discountRate(0.05);
 	
-	VanillaOption callOption(make_unique<PayOffCall>(strike), expiry);
+	Option callOption(make_unique<PayOffCall>(strike), expiry);
 
 	ConvergenceTableGatherer gatherer(make_unique<MeanGatherer>());
 	unique_ptr<RandomBase> generator = make_unique<RandomParkMiller>(1);
@@ -93,8 +93,8 @@ void testAntiTheticConvergence()
 
 	ConvergenceTableGatherer antiTheticGatherer(make_unique<MeanGatherer>());
 	unique_ptr<RandomBase> antiTheticGenerator = make_unique<AntiThetic>(make_unique<RandomParkMiller>(1));
-	MonteCarloService antiTheticService(antiTheticGenerator);
-	antiTheticService.Run(callOption, spot, vol, discountRate, numberOfPaths, antiTheticGatherer);
+	service.SetGenerator(antiTheticGenerator);
+	service.Run(callOption, spot, vol, discountRate, numberOfPaths, antiTheticGatherer);
 
 	cout << "AntiThetic sampling:" << endl << antiTheticGatherer.GetResultTable() << endl;
 }

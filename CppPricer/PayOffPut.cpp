@@ -16,7 +16,7 @@ namespace Pricer {
 		}
 
 
-		PayOffPut* PayOffPut::clone() const
+		PayOffPut* PayOffPut::Clone() const
 		{
 			return new PayOffPut(Strike);
 		}

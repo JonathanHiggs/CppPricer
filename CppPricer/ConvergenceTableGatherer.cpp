@@ -12,6 +12,12 @@ namespace Pricer {
 		{}
 
 
+		ConvergenceTableGatherer* ConvergenceTableGatherer::Clone() const
+		{
+			return new ConvergenceTableGatherer(unique_ptr<StatisticsGatherer>(inner->Clone()));
+		}
+
+
 		void ConvergenceTableGatherer::DumpOneResult(double result)
 		{
 			inner->DumpOneResult(result);
@@ -48,12 +54,6 @@ namespace Pricer {
 			stoppingPoint = 2;
 			pathsDone = 0UL;
 			resultsSoFar = ResultTable();
-		}
-
-
-		unique_ptr<StatisticsGatherer> ConvergenceTableGatherer::clone() const
-		{
-			return unique_ptr<StatisticsGatherer>(new ConvergenceTableGatherer(inner->clone()));
 		}
 	}
 }

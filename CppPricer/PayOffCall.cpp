@@ -16,7 +16,7 @@ namespace Pricer {
 		}
 
 
-		PayOffCall* PayOffCall::clone() const
+		PayOffCall* PayOffCall::Clone() const
 		{
 			return new PayOffCall(strike);
 		}

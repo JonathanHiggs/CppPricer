@@ -11,7 +11,6 @@ namespace Pricer {
 		{
 		public:
 			AntiThetic(std::unique_ptr<RandomBase> innerGenerator);
-			AntiThetic(std::unique_ptr<RandomBase>& innerGenerator);
 
 			virtual std::unique_ptr<RandomBase> Clone() const;
 			virtual void GetUniforms(std::vector<double>& variates);

@@ -17,9 +17,14 @@ namespace Pricer {
 			: generator(move(generator))
 		{}
 
+		void MonteCarloService::SetGenerator(unique_ptr<RandomBase>& newGenerator)
+		{
+			generator.release();
+			generator = move(newGenerator);
+		}
 
 		void MonteCarloService::Run(
-			const VanillaOption& option,
+			const Option& option,
 			double spot,
 			const Parameter& volatility,
 			const Parameter& discountRate,

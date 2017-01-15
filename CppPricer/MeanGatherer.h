@@ -6,12 +6,13 @@
 
 namespace Pricer {
 	namespace Statistics {
+
 		class MeanGatherer : public StatisticsGatherer
 		{
 		public:
 			MeanGatherer();
-			virtual std::unique_ptr<StatisticsGatherer> clone() const;
 
+			virtual MeanGatherer* Clone() const;
 			virtual void DumpOneResult(double result);
 			virtual ResultSet GetResultsSoFar() const;
 			virtual void Reset();

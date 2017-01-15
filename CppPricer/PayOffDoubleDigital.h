@@ -13,7 +13,7 @@ namespace Pricer {
 			virtual double operator() (double spot) const;
 			virtual ~PayOffDoubleDigital() {};
 
-			virtual PayOffDoubleDigital* clone() const;
+			virtual PayOffDoubleDigital* Clone() const;
 
 		private:
 			double LowerLevel;

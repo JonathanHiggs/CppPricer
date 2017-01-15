@@ -6,6 +6,7 @@
 
 namespace Pricer {
 	namespace Statistics {
+
 		class NumberOfPathsResult : public StatisticResult
 		{
 		public:

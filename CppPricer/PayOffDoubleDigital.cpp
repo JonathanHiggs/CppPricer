@@ -16,7 +16,7 @@ namespace Pricer {
 		}
 
 
-		PayOffDoubleDigital* PayOffDoubleDigital::clone() const
+		PayOffDoubleDigital* PayOffDoubleDigital::Clone() const
 		{
 			return new PayOffDoubleDigital(LowerLevel, UpperLevel);
 		}

@@ -7,19 +7,19 @@ using namespace std;
 
 namespace Pricer {
 	namespace Instrument {
-		VanillaOption::VanillaOption(unique_ptr<PayOff> payOff, double expiry)
+		Option::Option(unique_ptr<PayOff> payOff, double expiry)
 			: expiry(expiry), payOff(move(payOff))
 		{
 		}
 
 
-		double VanillaOption::GetExpiry() const
+		double Option::GetExpiry() const
 		{
 			return expiry;
 		}
 
 
-		double VanillaOption::OptionPayOff(double spot) const
+		double Option::OptionPayOff(double spot) const
 		{
 			return (*payOff)(spot);
 		}

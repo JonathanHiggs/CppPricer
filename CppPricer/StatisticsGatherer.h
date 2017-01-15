@@ -9,11 +9,12 @@
 
 namespace Pricer {
 	namespace Statistics {
+
 		class StatisticsGatherer
 		{
 		public:
 			StatisticsGatherer() {};
-			virtual std::unique_ptr<StatisticsGatherer> clone() const = 0;
+			virtual StatisticsGatherer* Clone() const = 0;
 			virtual ~StatisticsGatherer() {};
 
 			virtual void DumpOneResult(double result) = 0;

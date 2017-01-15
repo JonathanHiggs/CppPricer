@@ -9,6 +9,7 @@
 
 namespace Pricer {
 	namespace Statistics {
+
 		class ResultTable
 		{
 		public:

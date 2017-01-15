@@ -13,10 +13,10 @@ namespace Pricer {
 			virtual double operator() (double spot) const;
 			virtual ~PayOffDigitalCall() {};
 
-			virtual PayOffDigitalCall* clone() const;
+			virtual PayOffDigitalCall* Clone() const;
 
 		private:
-			double Strike;
+			double strike;
 		};
 	}
 }

@@ -12,8 +12,8 @@ namespace Pricer {
 		{
 		public:
 			ConvergenceTableGatherer(std::unique_ptr<StatisticsGatherer> inner);
-			virtual std::unique_ptr<StatisticsGatherer> clone() const;
 
+			virtual ConvergenceTableGatherer* Clone() const;
 			virtual void DumpOneResult(double result);
 			virtual ResultSet GetResultsSoFar() const;
 			virtual void Reset();

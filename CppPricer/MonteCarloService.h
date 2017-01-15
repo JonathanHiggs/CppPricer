@@ -15,13 +15,15 @@ namespace Pricer {
 		public:
 			MonteCarloService(std::unique_ptr<Util::RandomBase>& generator);
 
+			void SetGenerator(std::unique_ptr<Util::RandomBase>& generator);
+
 			void Run(
-				const Pricer::Instrument::VanillaOption& option,
+				const Instrument::Option& option,
 				double spot,
-				const Pricer::Parameters::Parameter& volatility,
-				const Pricer::Parameters::Parameter& discountRate,
+				const Parameters::Parameter& volatility,
+				const Parameters::Parameter& discountRate,
 				unsigned long numberOfPaths,
-				Pricer::Statistics::StatisticsGatherer& statisticsGatherer
+				Statistics::StatisticsGatherer& statisticsGatherer
 			) const;
 
 		private:

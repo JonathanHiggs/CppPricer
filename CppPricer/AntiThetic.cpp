@@ -16,14 +16,6 @@ namespace Pricer {
 			nextVariates.resize(GetDimensionality());
 		}
 
-		AntiThetic::AntiThetic(unique_ptr<RandomBase>& generator)
-			: RandomBase(generator->GetDimensionality()), innerGenerator(move(generator)), oddEven(true)
-		{
-			innerGenerator->Reset();
-			nextVariates.resize(GetDimensionality());
-		}
-
-
 		unique_ptr<RandomBase> AntiThetic::Clone() const
 		{
 			return unique_ptr<RandomBase>(new AntiThetic(innerGenerator->Clone()));

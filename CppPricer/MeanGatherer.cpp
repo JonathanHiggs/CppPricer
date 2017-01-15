@@ -14,9 +14,9 @@ namespace Pricer {
 		{}
 
 
-		unique_ptr<StatisticsGatherer> MeanGatherer::clone() const
+		MeanGatherer* MeanGatherer::Clone() const
 		{
-			return unique_ptr<StatisticsGatherer>(new MeanGatherer(*this));
+			return new MeanGatherer(*this);
 		}
 
 
