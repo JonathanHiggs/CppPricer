@@ -17,6 +17,7 @@
 #include "PayOffDigitalPut.h"
 #include "PayOffDoubleDigital.h"
 #include "RandomParkMiller.h"
+#include "LineFillingPoints.h"
 #include "StatisticsGatherer.h"
 
 #include <iostream>
@@ -37,7 +38,7 @@ void runMontaCarlo()
 	double expiry = 1;
 	double strike = 85;
 
-	ConvergenceTableGatherer callOptionStats(make_unique<MeanGatherer>());
+	ConvergenceTableGatherer callOptionStats(make_unique<MeanGatherer>(), 100000);
 	Option callOption(make_unique<PayOffCall>(strike), expiry);
 
 	MeanGatherer putOptionStats;
@@ -76,22 +77,24 @@ void runMontaCarlo()
 }
 
 
-void testAntiTheticConvergence()
+void testConvergence()
 {
-	unsigned long numberOfPaths = 1000000;
+	unsigned long numberOfPaths = 100000;
 	double expiry = 1.0, strike = 85.0, spot = 80.0;
 	ParameterConstant vol(0.05), discountRate(0.05);
 	
 	Option callOption(make_unique<PayOffCall>(strike), expiry);
 
-	ConvergenceTableGatherer gatherer(make_unique<MeanGatherer>());
+	// Regular sampling
+	ConvergenceTableGatherer gatherer(make_unique<MeanGatherer>(), 10000);
 	unique_ptr<RandomBase> generator = make_unique<RandomParkMiller>(1);
 	MonteCarloService service(generator);
 	service.Run(callOption, spot, vol, discountRate, numberOfPaths, gatherer);
 
 	cout << "Normal sampling:" << endl << gatherer.GetResultTable() << endl;
 
-	ConvergenceTableGatherer antiTheticGatherer(make_unique<MeanGatherer>());
+	// AntiThetic sampling
+	ConvergenceTableGatherer antiTheticGatherer(make_unique<MeanGatherer>(), 10000);
 	unique_ptr<RandomBase> antiTheticGenerator = make_unique<AntiThetic>(make_unique<RandomParkMiller>(1));
 	service.SetGenerator(antiTheticGenerator);
 	service.Run(callOption, spot, vol, discountRate, numberOfPaths, antiTheticGatherer);
@@ -103,5 +106,5 @@ void testAntiTheticConvergence()
 int main()
 {
 	//runMontaCarlo();
-	testAntiTheticConvergence();
+	testConvergence();
 }

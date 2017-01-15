@@ -11,7 +11,7 @@ namespace Pricer {
 		class ConvergenceTableGatherer : public StatisticsGatherer
 		{
 		public:
-			ConvergenceTableGatherer(std::unique_ptr<StatisticsGatherer> inner);
+			ConvergenceTableGatherer(std::unique_ptr<StatisticsGatherer> inner, unsigned long recordStride);
 
 			virtual ConvergenceTableGatherer* Clone() const;
 			virtual void DumpOneResult(double result);
@@ -23,6 +23,7 @@ namespace Pricer {
 			std::unique_ptr<StatisticsGatherer> inner;
 			ResultTable resultsSoFar;
 			unsigned long stoppingPoint;
+			unsigned long recordStride;
 			unsigned long pathsDone;
 		};
 	}

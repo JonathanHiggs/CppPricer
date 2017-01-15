@@ -12,7 +12,7 @@ namespace Pricer {
 		public:
 			AntiThetic(std::unique_ptr<RandomBase> innerGenerator);
 
-			virtual std::unique_ptr<RandomBase> Clone() const;
+			virtual AntiThetic* Clone() const;
 			virtual void GetUniforms(std::vector<double>& variates);
 			virtual void SetSeed(unsigned long seed);
 			virtual void Skip(unsigned long numberOfPaths);

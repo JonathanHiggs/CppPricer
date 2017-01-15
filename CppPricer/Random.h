@@ -15,7 +15,7 @@ namespace Pricer {
 
 			inline unsigned long GetDimensionality() const { return dimensionality; };
 
-			virtual std::unique_ptr<RandomBase> Clone() const = 0;
+			virtual RandomBase* Clone() const = 0;
 			virtual void GetUniforms(std::vector<double>& variates) = 0;
 			virtual void Skip(unsigned long numberOfVariates) = 0;
 			virtual void SetSeed(unsigned long seed) = 0;

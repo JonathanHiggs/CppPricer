@@ -15,9 +15,9 @@ namespace Pricer {
 		}
 
 
-		unique_ptr<RandomBase> RandomParkMiller::Clone() const
+		RandomParkMiller* RandomParkMiller::Clone() const
 		{
-			return make_unique<RandomParkMiller>(GetDimensionality(), initialSeed);
+			return new RandomParkMiller(GetDimensionality(), initialSeed);
 		}
 
 

@@ -13,7 +13,7 @@ namespace Pricer {
 		public:
 			RandomParkMiller(const unsigned long dimensionality, unsigned long seed = 1);
 
-			virtual std::unique_ptr<RandomBase> Clone() const;
+			virtual RandomParkMiller* Clone() const;
 			virtual void GetUniforms(std::vector<double>& variates);
 			virtual void Skip(unsigned long numberOfPaths);
 			virtual void SetSeed(unsigned long seed);

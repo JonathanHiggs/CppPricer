@@ -16,9 +16,9 @@ namespace Pricer {
 			nextVariates.resize(GetDimensionality());
 		}
 
-		unique_ptr<RandomBase> AntiThetic::Clone() const
+		AntiThetic* AntiThetic::Clone() const
 		{
-			return unique_ptr<RandomBase>(new AntiThetic(innerGenerator->Clone()));
+			return new AntiThetic(unique_ptr<RandomBase>(innerGenerator->Clone()));
 		}
 
 
