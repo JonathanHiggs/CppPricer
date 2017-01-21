@@ -91,6 +91,9 @@
     <ClCompile Include="TreeEuropean.cpp">
       <Filter>Source\Instrument</Filter>
     </ClCompile>
+    <ClCompile Include="BinomialTree.cpp">
+      <Filter>Source\Tree</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvergenceTableGatherer.h">
@@ -192,6 +195,9 @@
     <ClInclude Include="TreeEuropean.h">
       <Filter>Source\Instrument</Filter>
     </ClInclude>
+    <ClInclude Include="BinomialTree.h">
+      <Filter>Source\Tree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -214,6 +220,9 @@
     </Filter>
     <Filter Include="Source\Instrument">
       <UniqueIdentifier>{86156cc4-8b72-4d60-88ce-e70b9f72a7f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tree">
+      <UniqueIdentifier>{87976018-c745-45e7-8170-d1b18010d9c2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

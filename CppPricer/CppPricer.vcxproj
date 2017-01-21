@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AntiThetic.h" />
+    <ClInclude Include="BinomialTree.h" />
     <ClInclude Include="Cashflow.h" />
     <ClInclude Include="ConvergenceTableGatherer.h" />
     <ClInclude Include="ExoticBlackScholesEngine.h" />
@@ -182,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AntiThetic.cpp" />
+    <ClCompile Include="BinomialTree.cpp" />
     <ClCompile Include="ConvergenceTableGatherer.cpp" />
     <ClCompile Include="ExoticBlackScholesEngine.cpp" />
     <ClCompile Include="ExoticEngine.cpp" />
