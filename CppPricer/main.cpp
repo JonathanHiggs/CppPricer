@@ -5,11 +5,13 @@
 
 #include "AntiThetic.h"
 #include "ConvergenceTableGatherer.h"
+#include "ExoticBlackScholesEngine.h"
 #include "MeanGatherer.h"
 #include "MonteCarloService.h"
 #include "Option.h"
 #include "Parameter.h"
 #include "ParameterConstant.h"
+#include "PathDependentAsian.h"
 #include "PayOff.h"
 #include "PayOffCall.h"
 #include "PayOffPut.h"
@@ -17,7 +19,6 @@
 #include "PayOffDigitalPut.h"
 #include "PayOffDoubleDigital.h"
 #include "RandomParkMiller.h"
-#include "LineFillingPoints.h"
 #include "StatisticsGatherer.h"
 
 #include <iostream>
@@ -103,8 +104,38 @@ void testConvergence()
 }
 
 
+void runPathDependent()
+{
+	double expiry = 2.5;
+	double strike = 82.0;
+	double spot = 80.0;
+	unsigned long numberOfPaths = 10000;
+	unsigned long numberOfDates = 5;
+
+	shared_ptr<Parameter> vol = make_shared<ParameterConstant>(0.05);
+	shared_ptr<Parameter> r = make_shared<ParameterConstant>(0.05);
+	shared_ptr<Parameter> d = make_shared<ParameterConstant>(0.03);
+
+	vector<double> times(numberOfDates);
+	for (unsigned long i = 0; i < numberOfDates; i++)
+		times[i] = (i + 1.0) * expiry / numberOfDates;
+
+	unique_ptr<PathDependent> option = make_unique<PathDepenentAsian>(times, expiry, make_unique<PayOffCall>(strike));
+
+	ConvergenceTableGatherer gatherer(make_unique<MeanGatherer>(), 1000);
+	unique_ptr<RandomBase> generator = make_unique<AntiThetic>(make_unique<RandomParkMiller>(1));
+
+	ExoticBlackScholesEngine engine(option, r, d, vol, generator, spot);
+
+	engine.Run(gatherer, numberOfPaths);
+
+	cout << "Path Dependent Asia:" << endl << gatherer.GetResultTable() << endl;
+}
+
+
 int main()
 {
 	//runMontaCarlo();
-	testConvergence();
+	//testConvergence();
+	runPathDependent();
 }

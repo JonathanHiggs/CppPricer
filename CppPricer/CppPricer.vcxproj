@@ -147,7 +147,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AntiThetic.h" />
+    <ClInclude Include="Cashflow.h" />
     <ClInclude Include="ConvergenceTableGatherer.h" />
+    <ClInclude Include="ExoticBlackScholesEngine.h" />
+    <ClInclude Include="ExoticEngine.h" />
     <ClInclude Include="MeanGatherer.h" />
     <ClInclude Include="MeanResult.h" />
     <ClInclude Include="MonteCarloService.h" />
@@ -157,6 +160,8 @@
     <ClInclude Include="Parameter.h" />
     <ClInclude Include="ParameterConstant.h" />
     <ClInclude Include="ParkMiller.h" />
+    <ClInclude Include="PathDependent.h" />
+    <ClInclude Include="PathDependentAsian.h" />
     <ClInclude Include="PayOff.h" />
     <ClInclude Include="PayOffCall.h" />
     <ClInclude Include="PayOffDigitalCall.h" />
@@ -175,6 +180,8 @@
   <ItemGroup>
     <ClCompile Include="AntiThetic.cpp" />
     <ClCompile Include="ConvergenceTableGatherer.cpp" />
+    <ClCompile Include="ExoticBlackScholesEngine.cpp" />
+    <ClCompile Include="ExoticEngine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MeanResult.cpp" />
     <ClCompile Include="Normals.cpp" />
@@ -183,6 +190,8 @@
     <ClCompile Include="Parameter.cpp" />
     <ClCompile Include="ParameterConstant.cpp" />
     <ClCompile Include="ParkMiller.cpp" />
+    <ClCompile Include="PathDependent.cpp" />
+    <ClCompile Include="PathDependentAsian.cpp" />
     <ClCompile Include="PayOffCall.cpp" />
     <ClCompile Include="PayOffDigitalCall.cpp" />
     <ClCompile Include="PayOffDigitalPut.cpp" />

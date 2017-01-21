@@ -26,7 +26,7 @@
       <Filter>Source\Util</Filter>
     </ClCompile>
     <ClCompile Include="Option.cpp">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClCompile>
     <ClCompile Include="MonteCarloService.cpp">
       <Filter>Source\Service</Filter>
@@ -44,19 +44,19 @@
       <Filter>Source\Parameters</Filter>
     </ClCompile>
     <ClCompile Include="PayOffCall.cpp">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClCompile>
     <ClCompile Include="PayOffPut.cpp">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClCompile>
     <ClCompile Include="PayOffDigitalCall.cpp">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClCompile>
     <ClCompile Include="PayOffDigitalPut.cpp">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClCompile>
     <ClCompile Include="PayOffDoubleDigital.cpp">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClCompile>
     <ClCompile Include="ParkMiller.cpp">
       <Filter>Source\Util</Filter>
@@ -69,6 +69,18 @@
     </ClCompile>
     <ClCompile Include="Normals.cpp">
       <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="PathDependent.cpp">
+      <Filter>Source\Instrument</Filter>
+    </ClCompile>
+    <ClCompile Include="ExoticEngine.cpp">
+      <Filter>Source\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="ExoticBlackScholesEngine.cpp">
+      <Filter>Source\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="PathDependentAsian.cpp">
+      <Filter>Source\Instrument</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,10 +112,10 @@
       <Filter>Source\Util</Filter>
     </ClInclude>
     <ClInclude Include="Option.h">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClInclude>
     <ClInclude Include="PayOff.h">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClInclude>
     <ClInclude Include="MonteCarloService.h">
       <Filter>Source\Service</Filter>
@@ -121,19 +133,19 @@
       <Filter>Source\Parameters</Filter>
     </ClInclude>
     <ClInclude Include="PayOffCall.h">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClInclude>
     <ClInclude Include="PayOffPut.h">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClInclude>
     <ClInclude Include="PayOffDigitalCall.h">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClInclude>
     <ClInclude Include="PayOffDigitalPut.h">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClInclude>
     <ClInclude Include="PayOffDoubleDigital.h">
-      <Filter>Source\Instruments</Filter>
+      <Filter>Source\Instrument</Filter>
     </ClInclude>
     <ClInclude Include="Normals.h">
       <Filter>Source\Util</Filter>
@@ -147,6 +159,21 @@
     <ClInclude Include="AntiThetic.h">
       <Filter>Source\Util</Filter>
     </ClInclude>
+    <ClInclude Include="Cashflow.h">
+      <Filter>Source\Instrument</Filter>
+    </ClInclude>
+    <ClInclude Include="PathDependent.h">
+      <Filter>Source\Instrument</Filter>
+    </ClInclude>
+    <ClInclude Include="ExoticEngine.h">
+      <Filter>Source\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="ExoticBlackScholesEngine.h">
+      <Filter>Source\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="PathDependentAsian.h">
+      <Filter>Source\Instrument</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -154,9 +181,6 @@
   <ItemGroup>
     <Filter Include="Source">
       <UniqueIdentifier>{11fcd3ff-99b4-475e-8064-f81e1080d8c9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Instruments">
-      <UniqueIdentifier>{86156cc4-8b72-4d60-88ce-e70b9f72a7f5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\Parameters">
       <UniqueIdentifier>{23aaea25-89f1-43a6-95ae-6d2466388de6}</UniqueIdentifier>
@@ -169,6 +193,9 @@
     </Filter>
     <Filter Include="Source\Statistics">
       <UniqueIdentifier>{0f3584fd-5e9a-4a98-ad74-f74804ba28f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Instrument">
+      <UniqueIdentifier>{86156cc4-8b72-4d60-88ce-e70b9f72a7f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
