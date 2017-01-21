@@ -156,6 +156,9 @@
     <ClInclude Include="MonteCarloService.h" />
     <ClInclude Include="Normals.h" />
     <ClInclude Include="NumberOfPathsResult.h" />
+    <ClInclude Include="TreeAmerican.h" />
+    <ClInclude Include="TreeEuropean.h" />
+    <ClInclude Include="TreeInstrument.h" />
     <ClInclude Include="VanillaOption.h" />
     <ClInclude Include="Parameter.h" />
     <ClInclude Include="ParameterConstant.h" />
@@ -186,6 +189,9 @@
     <ClCompile Include="MeanResult.cpp" />
     <ClCompile Include="Normals.cpp" />
     <ClCompile Include="NumberOfPathsResult.cpp" />
+    <ClCompile Include="TreeAmerican.cpp" />
+    <ClCompile Include="TreeEuropean.cpp" />
+    <ClCompile Include="TreeInstrument.cpp" />
     <ClCompile Include="VanillaOption.cpp" />
     <ClCompile Include="Parameter.cpp" />
     <ClCompile Include="ParameterConstant.cpp" />

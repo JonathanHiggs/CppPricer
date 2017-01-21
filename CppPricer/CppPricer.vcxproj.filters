@@ -82,6 +82,15 @@
     <ClCompile Include="VanillaOption.cpp">
       <Filter>Source\Instrument</Filter>
     </ClCompile>
+    <ClCompile Include="TreeInstrument.cpp">
+      <Filter>Source\Instrument</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeAmerican.cpp">
+      <Filter>Source\Instrument</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeEuropean.cpp">
+      <Filter>Source\Instrument</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvergenceTableGatherer.h">
@@ -172,6 +181,15 @@
       <Filter>Source\Instrument</Filter>
     </ClInclude>
     <ClInclude Include="VanillaOption.h">
+      <Filter>Source\Instrument</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeInstrument.h">
+      <Filter>Source\Instrument</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeAmerican.h">
+      <Filter>Source\Instrument</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeEuropean.h">
       <Filter>Source\Instrument</Filter>
     </ClInclude>
   </ItemGroup>
