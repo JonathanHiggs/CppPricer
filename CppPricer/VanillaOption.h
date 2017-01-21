@@ -7,12 +7,13 @@
 
 namespace Pricer {
 	namespace Instrument {
-		class Option
+
+		class VanillaOption
 		{
 		public:
-			Option(std::unique_ptr<PayOff> payOff, double expiry);
+			VanillaOption(std::unique_ptr<PayOff> payOff, double expiry);
 			double GetExpiry() const;
-			double OptionPayOff(double spot) const;
+			double GetPayOff(double spot) const;
 
 		private:
 			std::unique_ptr<PayOff> payOff;

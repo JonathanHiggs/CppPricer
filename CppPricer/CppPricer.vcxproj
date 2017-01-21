@@ -156,7 +156,7 @@
     <ClInclude Include="MonteCarloService.h" />
     <ClInclude Include="Normals.h" />
     <ClInclude Include="NumberOfPathsResult.h" />
-    <ClInclude Include="Option.h" />
+    <ClInclude Include="VanillaOption.h" />
     <ClInclude Include="Parameter.h" />
     <ClInclude Include="ParameterConstant.h" />
     <ClInclude Include="ParkMiller.h" />
@@ -186,7 +186,7 @@
     <ClCompile Include="MeanResult.cpp" />
     <ClCompile Include="Normals.cpp" />
     <ClCompile Include="NumberOfPathsResult.cpp" />
-    <ClCompile Include="Option.cpp" />
+    <ClCompile Include="VanillaOption.cpp" />
     <ClCompile Include="Parameter.cpp" />
     <ClCompile Include="ParameterConstant.cpp" />
     <ClCompile Include="ParkMiller.cpp" />

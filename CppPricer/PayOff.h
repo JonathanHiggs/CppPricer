@@ -6,6 +6,7 @@
 
 namespace Pricer {
 	namespace Instrument {
+
 		class PayOff
 		{
 		public:

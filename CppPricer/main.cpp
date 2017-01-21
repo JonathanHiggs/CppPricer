@@ -8,7 +8,7 @@
 #include "ExoticBlackScholesEngine.h"
 #include "MeanGatherer.h"
 #include "MonteCarloService.h"
-#include "Option.h"
+#include "VanillaOption.h"
 #include "Parameter.h"
 #include "ParameterConstant.h"
 #include "PathDependentAsian.h"
@@ -40,19 +40,19 @@ void runMontaCarlo()
 	double strike = 85;
 
 	ConvergenceTableGatherer callOptionStats(make_unique<MeanGatherer>(), 100000);
-	Option callOption(make_unique<PayOffCall>(strike), expiry);
+	VanillaOption callOption(make_unique<PayOffCall>(strike), expiry);
 
 	MeanGatherer putOptionStats;
-	Option putOption(make_unique<PayOffPut>(strike), expiry);
+	VanillaOption putOption(make_unique<PayOffPut>(strike), expiry);
 
 	MeanGatherer digitalCallOptionStats;
-	Option digitalCallOption(make_unique<PayOffDigitalCall>(strike), expiry);
+	VanillaOption digitalCallOption(make_unique<PayOffDigitalCall>(strike), expiry);
 	
 	MeanGatherer digitalPutOptionStats;
-	Option digitalPutOption(make_unique<PayOffDigitalPut>(strike), expiry);
+	VanillaOption digitalPutOption(make_unique<PayOffDigitalPut>(strike), expiry);
 	
 	MeanGatherer doubleDigitalOptionStats;
-	Option doubleDigitalOption(make_unique<PayOffDoubleDigital>(82.0, 85.0), expiry);
+	VanillaOption doubleDigitalOption(make_unique<PayOffDoubleDigital>(82.0, 85.0), expiry);
 	
 	double spot = 80;
 	ParameterConstant vol(0.05);
@@ -84,7 +84,7 @@ void testConvergence()
 	double expiry = 1.0, strike = 85.0, spot = 80.0;
 	ParameterConstant vol(0.05), discountRate(0.05);
 	
-	Option callOption(make_unique<PayOffCall>(strike), expiry);
+	VanillaOption callOption(make_unique<PayOffCall>(strike), expiry);
 
 	// Regular sampling
 	ConvergenceTableGatherer gatherer(make_unique<MeanGatherer>(), 10000);

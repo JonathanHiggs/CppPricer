@@ -25,9 +25,6 @@
     <ClCompile Include="Random.cpp">
       <Filter>Source\Util</Filter>
     </ClCompile>
-    <ClCompile Include="Option.cpp">
-      <Filter>Source\Instrument</Filter>
-    </ClCompile>
     <ClCompile Include="MonteCarloService.cpp">
       <Filter>Source\Service</Filter>
     </ClCompile>
@@ -82,6 +79,9 @@
     <ClCompile Include="PathDependentAsian.cpp">
       <Filter>Source\Instrument</Filter>
     </ClCompile>
+    <ClCompile Include="VanillaOption.cpp">
+      <Filter>Source\Instrument</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvergenceTableGatherer.h">
@@ -110,9 +110,6 @@
     </ClInclude>
     <ClInclude Include="Random.h">
       <Filter>Source\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Option.h">
-      <Filter>Source\Instrument</Filter>
     </ClInclude>
     <ClInclude Include="PayOff.h">
       <Filter>Source\Instrument</Filter>
@@ -172,6 +169,9 @@
       <Filter>Source\Service</Filter>
     </ClInclude>
     <ClInclude Include="PathDependentAsian.h">
+      <Filter>Source\Instrument</Filter>
+    </ClInclude>
+    <ClInclude Include="VanillaOption.h">
       <Filter>Source\Instrument</Filter>
     </ClInclude>
   </ItemGroup>

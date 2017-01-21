@@ -24,7 +24,7 @@ namespace Pricer {
 		}
 
 		void MonteCarloService::Run(
-			const Option& option,
+			const VanillaOption& option,
 			double spot,
 			const Parameter& volatility,
 			const Parameter& discountRate,
@@ -48,7 +48,7 @@ namespace Pricer {
 			{
 				generator->GetGaussians(variate);
 				thisSpot = movedSpot * exp(rootVariance * variate[0]);
-				thisPayOff = option.OptionPayOff(thisSpot);
+				thisPayOff = option.GetPayOff(thisSpot);
 				gatherer.DumpOneResult(thisPayOff * discount);
 			}
 		}

@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "Option.h"
+#include "VanillaOption.h"
 #include "Parameter.h"
 #include "Random.h"
 #include "StatisticsGatherer.h"
@@ -18,7 +18,7 @@ namespace Pricer {
 			void SetGenerator(std::unique_ptr<Util::RandomBase>& generator);
 
 			void Run(
-				const Instrument::Option& option,
+				const Instrument::VanillaOption& option,
 				double spot,
 				const Parameters::Parameter& volatility,
 				const Parameters::Parameter& discountRate,
