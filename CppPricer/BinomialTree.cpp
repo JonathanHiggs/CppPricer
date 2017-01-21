@@ -18,7 +18,7 @@ namespace Pricer {
 			unsigned long steps,
 			double time
 		)
-			: spot(spot), r(move(r)), d(move(d)), volatility(volatility), steps(steps), time(time), treeBuilt(false)
+			: spot(spot), r(move(r)), d(move(d)), volatility(volatility), steps(steps), time(time), treeBuilt(false), discounts(steps)
 		{ }
 
 
@@ -51,7 +51,7 @@ namespace Pricer {
 		}
 
 
-		double BinomialTree::Price(shared_ptr<TreeInstrument>& option)
+		double BinomialTree::Price(unique_ptr<TreeInstrument>& option)
 		{
 			if (!treeBuilt)
 				BuildTree();
@@ -62,7 +62,7 @@ namespace Pricer {
 			for (long j = -static_cast<long>(steps), k = 0; j <= static_cast<long>(steps); j = j + 2, k++)
 				tree[steps][k].second = option->FinalPayOff(tree[steps][k].first);
 
-			for (unsigned long i = 1; i < steps; i++)
+			for (unsigned long i = 1; i <= steps; i++)
 			{
 				unsigned long index = steps - i;
 				double thisTime = index * time / steps;

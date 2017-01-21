@@ -9,7 +9,7 @@ using namespace std;
 namespace Pricer {
 	namespace Instrument {
 
-		TreeEuropean::TreeEuropean(double finalTime, unique_ptr<PayOff>& payOff)
+		TreeEuropean::TreeEuropean(double finalTime, unique_ptr<PayOff> payOff)
 			: TreeInstrument(finalTime), payOff(move(payOff))
 		{}
 

@@ -12,7 +12,7 @@ namespace Pricer {
 		class TreeEuropean : public TreeInstrument
 		{
 		public:
-			TreeEuropean(double finalTime, std::unique_ptr<PayOff>& payOff);
+			TreeEuropean(double finalTime, std::unique_ptr<PayOff> payOff);
 
 			virtual TreeEuropean* Clone() const;
 			virtual double FinalPayOff(double spot) const;

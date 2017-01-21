@@ -22,7 +22,7 @@ namespace Pricer {
 				double time
 			);
 
-			double Price(std::shared_ptr<Instrument::TreeInstrument>& option);
+			double Price(std::unique_ptr<Instrument::TreeInstrument>& option);
 
 		protected:
 			void BuildTree();

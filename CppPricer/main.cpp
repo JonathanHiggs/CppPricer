@@ -4,6 +4,7 @@
 #include "stdafx.h"
 
 #include "AntiThetic.h"
+#include "BinomialTree.h"
 #include "ConvergenceTableGatherer.h"
 #include "ExoticBlackScholesEngine.h"
 #include "MeanGatherer.h"
@@ -20,6 +21,9 @@
 #include "PayOffDoubleDigital.h"
 #include "RandomParkMiller.h"
 #include "StatisticsGatherer.h"
+#include "TreeAmerican.h"
+#include "TreeEuropean.h"
+#include "TreeInstrument.h"
 
 #include <iostream>
 #include <string>
@@ -31,10 +35,11 @@ using namespace Pricer::Instrument;
 using namespace Pricer::Parameters;
 using namespace Pricer::Service;
 using namespace Pricer::Statistics;
+using namespace Pricer::Tree;
 using namespace Pricer::Util;
 
 
-void runMontaCarlo()
+void testMontaCarlo()
 {
 	double expiry = 1;
 	double strike = 85;
@@ -104,7 +109,7 @@ void testConvergence()
 }
 
 
-void runPathDependent()
+void testPathDependent()
 {
 	double expiry = 2.5;
 	double strike = 82.0;
@@ -133,9 +138,31 @@ void runPathDependent()
 }
 
 
+void testBinomialTree()
+{
+	unsigned long steps = 14;
+	double expiry = 2.5, strike = 90.0, spot = 87.0, vol = 0.075;
+
+	unique_ptr<Parameter> r = make_unique<ParameterConstant>(0.05);
+	unique_ptr<Parameter> d = make_unique<ParameterConstant>(0.02);
+
+	unique_ptr<TreeInstrument> europeanOption = make_unique<TreeEuropean>(expiry, make_unique<PayOffCall>(strike));
+	unique_ptr<TreeInstrument> americanOption = make_unique<TreeAmerican>(expiry, make_unique<PayOffCall>(strike));
+
+	BinomialTree tree(spot, r, d, vol, steps, expiry);
+
+	double europeanPrice = tree.Price(europeanOption);
+	double americanPrice = tree.Price(americanOption);
+
+	cout << "European price: " << europeanPrice << endl;
+	cout << "American price: " << americanPrice << endl;
+}
+
+
 int main()
 {
-	//runMontaCarlo();
+	//testMontaCarlo();
 	//testConvergence();
-	runPathDependent();
+	//testPathDependent();
+	testBinomialTree();
 }
