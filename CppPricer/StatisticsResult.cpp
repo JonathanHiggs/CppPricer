@@ -7,6 +7,7 @@ using namespace std;
 
 namespace Pricer {
 	namespace Statistics {
+
 		ostream& operator << (ostream& os, const StatisticResult& result)
 		{
 			result.Serialize(os);

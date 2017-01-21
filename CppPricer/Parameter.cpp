@@ -4,6 +4,7 @@
 
 namespace Pricer {
 	namespace Parameters {
+
 		double Parameter::Mean(double time1, double time2) const
 		{
 			double total = Integral(time1, time2);

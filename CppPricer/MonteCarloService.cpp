@@ -13,6 +13,7 @@ using namespace Pricer::Util;
 
 namespace Pricer {
 	namespace Service {
+
 		MonteCarloService::MonteCarloService(unique_ptr<RandomBase>& generator)
 			: generator(move(generator))
 		{}

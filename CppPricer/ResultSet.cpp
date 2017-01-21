@@ -7,6 +7,7 @@ using namespace std;
 
 namespace Pricer {
 	namespace Statistics {
+
 		ResultSet::ResultSet()
 			: results()
 		{}

@@ -5,8 +5,10 @@
 
 using namespace std;
 
+
 namespace Pricer {
 	namespace Statistics {
+
 		ConvergenceTableGatherer::ConvergenceTableGatherer(unique_ptr<StatisticsGatherer> inner, unsigned long recordStride)
 			: inner(move(inner)), stoppingPoint(recordStride), pathsDone(0UL), recordStride(recordStride)
 		{}

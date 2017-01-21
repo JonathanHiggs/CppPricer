@@ -4,6 +4,7 @@
 
 namespace Pricer {
 	namespace Parameters {
+
 		ParameterConstant::ParameterConstant(double constant)
 			: constant(constant), constantSquare(constant * constant)
 		{ }

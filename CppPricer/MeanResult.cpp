@@ -7,6 +7,7 @@ using namespace std;
 
 namespace Pricer {
 	namespace Statistics {
+
 		MeanResult::MeanResult(double mean)
 			: mean(mean)
 		{}

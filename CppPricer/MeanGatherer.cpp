@@ -9,6 +9,7 @@ using namespace std;
 
 namespace Pricer {
 	namespace Statistics {
+
 		MeanGatherer::MeanGatherer()
 			: runningSum(0.0), pathsDone(0UL)
 		{}

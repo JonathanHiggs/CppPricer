@@ -5,6 +5,7 @@
 
 namespace Pricer {
 	namespace Instrument {
+
 		PayOffDoubleDigital::PayOffDoubleDigital(double lowerLevel, double upperLevel)
 			: LowerLevel(lowerLevel), UpperLevel(upperLevel)
 		{}

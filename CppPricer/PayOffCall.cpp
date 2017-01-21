@@ -5,6 +5,7 @@
 
 namespace Pricer {
 	namespace Instrument {
+
 		PayOffCall::PayOffCall(double strike)
 			: strike(strike)
 		{}
