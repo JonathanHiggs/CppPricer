@@ -94,6 +94,12 @@
     <ClCompile Include="BinomialTree.cpp">
       <Filter>Source\Tree</Filter>
     </ClCompile>
+    <ClCompile Include="BlackScholesCall.cpp">
+      <Filter>Source\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackScholes.cpp">
+      <Filter>Source\Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvergenceTableGatherer.h">
@@ -198,6 +204,12 @@
     <ClInclude Include="BinomialTree.h">
       <Filter>Source\Tree</Filter>
     </ClInclude>
+    <ClInclude Include="BlackScholesCall.h">
+      <Filter>Source\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackScholes.h">
+      <Filter>Source\Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -223,6 +235,9 @@
     </Filter>
     <Filter Include="Source\Tree">
       <UniqueIdentifier>{87976018-c745-45e7-8170-d1b18010d9c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Models">
+      <UniqueIdentifier>{0c53d898-7ed1-4496-b00c-f12cf194c528}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
