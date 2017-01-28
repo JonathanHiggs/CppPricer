@@ -64,9 +64,6 @@
     <ClCompile Include="AntiThetic.cpp">
       <Filter>Source\Util</Filter>
     </ClCompile>
-    <ClCompile Include="Normals.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
     <ClCompile Include="PathDependent.cpp">
       <Filter>Source\Instrument</Filter>
     </ClCompile>
@@ -99,6 +96,9 @@
     </ClCompile>
     <ClCompile Include="BlackScholes.cpp">
       <Filter>Source\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="StandardNormalDistribution.cpp">
+      <Filter>Source\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,9 +162,6 @@
     <ClInclude Include="PayOffDoubleDigital.h">
       <Filter>Source\Instrument</Filter>
     </ClInclude>
-    <ClInclude Include="Normals.h">
-      <Filter>Source\Util</Filter>
-    </ClInclude>
     <ClInclude Include="ParkMiller.h">
       <Filter>Source\Util</Filter>
     </ClInclude>
@@ -210,6 +207,15 @@
     <ClInclude Include="BlackScholes.h">
       <Filter>Source\Models</Filter>
     </ClInclude>
+    <ClInclude Include="Bisection.h">
+      <Filter>Source\Solvers</Filter>
+    </ClInclude>
+    <ClInclude Include="StandardNormalDistribution.h">
+      <Filter>Source\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="NewtonRaphson.h">
+      <Filter>Source\Solvers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -238,6 +244,9 @@
     </Filter>
     <Filter Include="Source\Models">
       <UniqueIdentifier>{0c53d898-7ed1-4496-b00c-f12cf194c528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Solvers">
+      <UniqueIdentifier>{a5bbf954-00a4-484d-b8f2-9e169cfa4a4b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

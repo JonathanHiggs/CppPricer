@@ -11,9 +11,15 @@ namespace Pricer {
 		{ }
 
 
-		double BlackScholesCall::operator()(double vol) const
+		double BlackScholesCall::Price(double vol) const
 		{
 			return BlackScholes::Call(spot, strike, drift, discount, vol, timeToExpiry);
+		}
+
+
+		double BlackScholesCall::Vega(double vol) const
+		{
+			return BlackScholes::CallVega(spot, strike, drift, discount, vol, timeToExpiry);
 		}
 	}
 }

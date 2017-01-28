@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Random.h"
-#include "Normals.h"
+#include "StandardNormalDistribution.h"
 #include <random>
 #include <cstdlib>
 #include <cmath>
@@ -24,7 +24,7 @@ namespace Pricer {
 			for (unsigned long i = 0; i < dimensionality; i++)
 			{
 				double x = variates[i];
-				variates[i] = InverseCumulativeNormal(x);
+				variates[i] = StandardNormalDistribution::InverseCumulativeDensity(x);
 			}
 		}
 

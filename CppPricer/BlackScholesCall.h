@@ -9,7 +9,8 @@ namespace Pricer {
 		public:
 			BlackScholesCall(double discount, double drift, double timeToExpiry, double spot, double strike);
 
-			double operator()(double vol) const;
+			double Price(double vol) const;
+			double Vega(double vol) const;
 
 		private:
 			double discount;

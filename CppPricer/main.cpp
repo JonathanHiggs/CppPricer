@@ -5,10 +5,13 @@
 
 #include "AntiThetic.h"
 #include "BinomialTree.h"
+#include "Bisection.h"
+#include "BlackScholesCall.h"
 #include "ConvergenceTableGatherer.h"
 #include "ExoticBlackScholesEngine.h"
 #include "MeanGatherer.h"
 #include "MonteCarloService.h"
+#include "NewtonRaphson.h"
 #include "VanillaOption.h"
 #include "Parameter.h"
 #include "ParameterConstant.h"
@@ -32,8 +35,10 @@
 
 using namespace std;
 using namespace Pricer::Instrument;
+using namespace Pricer::Models;
 using namespace Pricer::Parameters;
 using namespace Pricer::Service;
+using namespace Pricer::Solvers;
 using namespace Pricer::Statistics;
 using namespace Pricer::Tree;
 using namespace Pricer::Util;
@@ -41,7 +46,7 @@ using namespace Pricer::Util;
 
 void testMontaCarlo()
 {
-	double expiry = 1;
+	double expiry = 1.0;
 	double strike = 85;
 
 	ConvergenceTableGatherer callOptionStats(make_unique<MeanGatherer>(), 100000);
@@ -159,10 +164,27 @@ void testBinomialTree()
 }
 
 
+void testSovlers()
+{
+	double discount = 0.05;
+	double drift = 0.05;
+	double timeToExpiry = 1.0;
+	double spot = 80;
+	double strike = 85;
+	double price = 0.5465;
+
+	BlackScholesCall call(discount, drift, timeToExpiry, spot, strike);
+	double vol = NewtonRaphson<BlackScholesCall, &BlackScholesCall::Price, &BlackScholesCall::Vega>(price, 0.5, 0.00001, call);
+
+	cout << "The vol: " << vol << endl;
+}
+
+
 int main()
 {
 	//testMontaCarlo();
 	//testConvergence();
 	//testPathDependent();
-	testBinomialTree();
+	//testBinomialTree();
+	testSovlers();
 }

@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="AntiThetic.h" />
     <ClInclude Include="BinomialTree.h" />
+    <ClInclude Include="Bisection.h" />
     <ClInclude Include="BlackScholes.h" />
     <ClInclude Include="BlackScholesCall.h" />
     <ClInclude Include="Cashflow.h" />
@@ -157,8 +158,9 @@
     <ClInclude Include="MeanGatherer.h" />
     <ClInclude Include="MeanResult.h" />
     <ClInclude Include="MonteCarloService.h" />
-    <ClInclude Include="Normals.h" />
+    <ClInclude Include="NewtonRaphson.h" />
     <ClInclude Include="NumberOfPathsResult.h" />
+    <ClInclude Include="StandardNormalDistribution.h" />
     <ClInclude Include="TreeAmerican.h" />
     <ClInclude Include="TreeEuropean.h" />
     <ClInclude Include="TreeInstrument.h" />
@@ -193,8 +195,8 @@
     <ClCompile Include="ExoticEngine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MeanResult.cpp" />
-    <ClCompile Include="Normals.cpp" />
     <ClCompile Include="NumberOfPathsResult.cpp" />
+    <ClCompile Include="StandardNormalDistribution.cpp" />
     <ClCompile Include="TreeAmerican.cpp" />
     <ClCompile Include="TreeEuropean.cpp" />
     <ClCompile Include="TreeInstrument.cpp" />
